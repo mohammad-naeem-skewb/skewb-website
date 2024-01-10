@@ -1,12 +1,12 @@
 import { Typography } from "@mui/material";
 
 // constants
-import { title } from "../constants/home/title";
+import home from "../constants/home";
 
 const Home = () => {
   return (
     <Typography variant="h2" sx={{ color: "themeColor", textAlign: "center" }}>
-      {title.title}
+      {home.title}
     </Typography>
   );
 };
