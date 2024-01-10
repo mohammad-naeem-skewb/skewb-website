@@ -5,7 +5,7 @@ import home from "../constants/home";
 
 const Home = () => {
   return (
-    <Typography variant="h2" sx={{ color: "themeColor", textAlign: "center" }}>
+    <Typography variant="h3" sx={{ color: "themeColor", textAlign: "center" }}>
       {home.title}
     </Typography>
   );
