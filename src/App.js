@@ -6,6 +6,8 @@ import {
   responsiveFontSizes,
 } from "@mui/material/styles";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 //pages
 import Home from "./pages/Home";
 
@@ -39,12 +41,16 @@ theme = responsiveFontSizes(theme);
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container maxWidth="xl">
-        <Home />
-      </Container>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Container maxWidth="xl">
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+          </Routes>
+        </Container>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 };
 
