@@ -1,20 +1,30 @@
 // mui imports
-import { Container, CssBaseline } from "@mui/material";
+import { Box, Container, CssBaseline } from "@mui/material";
+import About from "./pages/About";
 import {
   createTheme,
   ThemeProvider,
   responsiveFontSizes,
 } from "@mui/material/styles";
 
+import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
+import Navbar from "./homeComponents/Navbar";
+import Service from "./pages/Service";
 //pages
 import Home from "./pages/Home";
+import Form from "./contactComp/Form";
+import Contact from "./pages/Contact";
+import Industries from "./pages/Industries";
+import Explore from "./ExploreComp/Explore";
+
+
 
 // theme
 
 let theme = createTheme({
   palette: {
     background: {
-      default: "#1c2427", // Set the default background color
+      default: "black", // Set the default background color
     },
     themeColor: "#d6ff41",
     bgColor: "#1c2427",
@@ -39,12 +49,28 @@ theme = responsiveFontSizes(theme);
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container maxWidth="xl">
-        <Home />
-      </Container>
-    </ThemeProvider>
+
+    <BrowserRouter>
+    <Navbar />
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Box maxWidth="xl">
+          <Routes>
+            <Route path="/" element={<Home />} exact /> 
+            {/* <Route path="/about" element={<div style={{color: "red", backgroundColor: "yellow"}}>Hello from about</div>} exact /> */}
+            <Route path="/about" element={<About />} />
+            <Route path="/service" element={<Service />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/industries" element={<Industries />} />
+
+          </Routes>
+        </Box>
+      </ThemeProvider>
+
+    </BrowserRouter>
+
+  //  <Industries />
+ 
   );
 };
 

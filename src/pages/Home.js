@@ -1,14 +1,25 @@
-import { Typography } from "@mui/material";
+import React from 'react'
+import Navbar from '../homeComponents/Navbar'
+import HeroSection from '../homeComponents/HeroSection'
+import Testimonials from '../homeComponents/Testimonials'
+import Cards from '../homeComponents/Cards'
+import AutoCarousel from '../homeComponents/AutoCarousel'
+import Footer from './Footer'
 
-// constants
-import home from "../constants/home";
 
-const Home = () => {
+function Home() {
   return (
-    <Typography variant="h3" sx={{ color: "themeColor", textAlign: "center" }}>
-      {home.title}
-    </Typography>
-  );
-};
+    <>
+      <Navbar />
+      <HeroSection />
+     
+      <AutoCarousel />
+      <Testimonials />
+      <Footer />
+     
+      
+    </>
+  )
+}
 
-export default Home;
+export default Home
