@@ -17,10 +17,6 @@ import Industries from "./pages/Industries";
 import Explore from "./industryContactComp/Explore";
 import Blog from "./BlogCompo/Blog";
 
-
-
-
-
 // theme
 
 let theme = createTheme({
@@ -51,7 +47,6 @@ theme = responsiveFontSizes(theme);
 
 const App = () => {
   return (
-
     <BrowserRouter>
       <Navbar />
       <ThemeProvider theme={theme}>
@@ -64,16 +59,12 @@ const App = () => {
             <Route path="/service" element={<Service />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/industries" element={<Industries />} />
-            <Route path="/explore"  element={<Explore />} />
+            <Route path="/explore" element={<Explore />} />
             <Route path="/blog" element={<Blog />} />
           </Routes>
         </Box>
       </ThemeProvider>
-
     </BrowserRouter>
-    
-
-
   );
 };
 
