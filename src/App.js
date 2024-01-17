@@ -1,5 +1,5 @@
 // mui imports
-import { Box, Container, CssBaseline } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 import About from "./pages/About";
 import {
   createTheme,
@@ -7,7 +7,7 @@ import {
   responsiveFontSizes,
 } from "@mui/material/styles";
 
-import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./homeComponents/Navbar";
 import Service from "./pages/Service";
 //pages
@@ -15,7 +15,10 @@ import Home from "./pages/Home";
 import Form from "./contactComp/Form";
 import Contact from "./pages/Contact";
 import Industries from "./pages/Industries";
-import Explore from "./ExploreComp/Explore";
+import Explore from "./industryContactComp/Explore";
+import Blog from "./BlogCompo/Blog";
+
+
 
 
 
@@ -51,26 +54,27 @@ const App = () => {
   return (
 
     <BrowserRouter>
-    <Navbar />
+      <Navbar />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Box maxWidth="xl">
           <Routes>
-            <Route path="/" element={<Home />} exact /> 
+            <Route path="/" element={<Home />} exact />
             {/* <Route path="/about" element={<div style={{color: "red", backgroundColor: "yellow"}}>Hello from about</div>} exact /> */}
             <Route path="/about" element={<About />} />
             <Route path="/service" element={<Service />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/industries" element={<Industries />} />
-
+            <Route path="/explore"  element={<Explore />} />
+            <Route path="/blog" element={<Blog />} />
           </Routes>
         </Box>
       </ThemeProvider>
 
     </BrowserRouter>
+    
 
-  //  <Industries />
- 
+
   );
 };
 

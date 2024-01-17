@@ -21,8 +21,8 @@ function Navbar() {
       <AppBar sx={{ backgroundColor: "black" }} >
         <Toolbar>
 
-         <Link to="/" > <img src={skewbLogo} width={"150px"} /></Link>
-         
+          <Link to="/" > <img src={skewbLogo} width={"150px"} /></Link>
+
           {
             isMatch ? <>
 
@@ -35,11 +35,12 @@ function Navbar() {
               onChange={clickHandle}
             >
 
-              <Tab label="Home" component={Link} to="/" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' } }} />
-              <Tab label="About" component={Link} to="/about" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' } }} />
-              <Tab label="Service" component={Link} to="/service" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' } }} />
-              <Tab label="Industries" component={Link} to="/industries" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' } }} />
-              <Tab label="Contact" component={Link} to="/contact" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' } }} />
+              <Tab label="Home" component={Link} to="/" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41', color: '#d6ff41' } }} />
+              <Tab label="About" component={Link} to="/about" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41', color: '#d6ff41' } }} />
+              <Tab label="Service" component={Link} to="/service" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41', color: '#d6ff41' } }} />
+              <Tab label="Industries" component={Link} to="/industries" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41', color: '#d6ff41' } }} />
+              <Tab label="Contact" component={Link} to="/contact" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41', color: '#d6ff41' } }} />
+              <Tab label="Blog" component={Link} to="/blog" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41', color: '#d6ff41' } }} />
 
             </Tabs>
           }

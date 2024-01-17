@@ -8,6 +8,7 @@ import {
   CardContent,
   Grid,
 } from "@mui/material";
+import { Link } from "react-router-dom";
  
 export default function Card_ind({ img, heading, content }) {
   return (
@@ -99,7 +100,9 @@ export default function Card_ind({ img, heading, content }) {
             },
           }}
         >
-          Explore
+         <Link to="/explore" style={{ color: 'white', textDecoration: 'none' }}>
+      Explore
+    </Link>
         </Button>
       </CardActions>
     </Card>
