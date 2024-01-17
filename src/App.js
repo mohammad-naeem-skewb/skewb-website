@@ -12,7 +12,6 @@ import Navbar from "./homeComponents/Navbar";
 import Service from "./pages/Service";
 //pages
 import Home from "./pages/Home";
-import Form from "./contactComp/Form";
 import Contact from "./pages/Contact";
 import Industries from "./pages/Industries";
 import Explore from "./industryContactComp/Explore";
