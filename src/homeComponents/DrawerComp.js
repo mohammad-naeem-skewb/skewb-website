@@ -8,44 +8,51 @@ import { Link } from 'react-router-dom';
 function DrawerComp() {
     const [openDrawer, setDrawer] = useState(false)
     const theme = useTheme();
-    const isMatch = useMediaQuery(theme.breakpoints.down('md'))
+
+    const handleTabClick = () => {
+        setDrawer(false);
+    };
 
     return (
         <>
-            <Drawer open={openDrawer} onClose={() => setDrawer(false)} >
+            <Drawer open={openDrawer} anchor="right" onClose={() => setDrawer(false)} PaperProps={{
+                    sx: {
+                        backgroundColor: '#1c2427', // Change this to your desired background color
+                    },
+                }} >
                 <List>
                     <ListItemButton>
                         <ListItemIcon>
                             <ListItemText>
-                                <Tab label="Home" component={Link} to="/" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' } }} />
+                                <Tab onClick={handleTabClick} label="Home" component={Link} to="/" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' }, color: "#d6ff41" }} />
                             </ListItemText>
                         </ListItemIcon>
                     </ListItemButton>
                     <ListItemButton>
                         <ListItemIcon>
                             <ListItemText>
-                                <Tab label="About" component={Link} to="/about" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' } }} />
+                                <Tab onClick={handleTabClick} label="About" component={Link} to="/about" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' }, color: "#d6ff41" }} />
                             </ListItemText>
                         </ListItemIcon>
                     </ListItemButton>
                     <ListItemButton>
                         <ListItemIcon>
                             <ListItemText>
-                                <Tab label="Services" component={Link} to="/service" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' } }} />
+                                <Tab onClick={handleTabClick} label="Services" component={Link} to="/service" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' }, color: "#d6ff41" }} />
                             </ListItemText>
                         </ListItemIcon>
                     </ListItemButton>
                     <ListItemButton>
                         <ListItemIcon>
                             <ListItemText>
-                                <Tab label="Industries" component={Link} to="/industries" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' } }} />
+                                <Tab onClick={handleTabClick} label="Industries" component={Link} to="/industries" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' }, color: "#d6ff41" }} />
                             </ListItemText>
                         </ListItemIcon>
                     </ListItemButton>
                     <ListItemButton>
                         <ListItemIcon>
                             <ListItemText>
-                                <Tab label="Contact" component={Link} to="/contact" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' } }} />
+                                <Tab onClick={handleTabClick} label="Contact" component={Link} to="/contact" sx={{ '&.Mui-selected': { borderBottom: '2px solid #d6ff41' }, color: "#d6ff41" }} />
                             </ListItemText>
                         </ListItemIcon>
                     </ListItemButton>

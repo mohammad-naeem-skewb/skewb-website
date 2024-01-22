@@ -25,7 +25,7 @@ export default function AutoCarousel() {
 
   return (
     <>
-      <Swiper
+       <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
@@ -40,6 +40,8 @@ export default function AutoCarousel() {
         className="mySwiper"
         effect="fade" // Use 'fade' for smoother transitions
         speed={800} // Set the transition speed in milliseconds
+        direction="horizontal" // Set the direction to 'horizontal'
+        loop={true} // Enable loop to make it continuous
       >
         {contentArray.map((ele, index) => (
           <SwiperSlide key={index}>

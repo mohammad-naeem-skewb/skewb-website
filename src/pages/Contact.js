@@ -1,35 +1,36 @@
-import {  Box } from "@mui/material";
- 
-// constants
- 
- 
-// import Form from "../components/FormInfo";
- 
-// import Lowertext from "../components/Lowertext";
-// import Uptext from "../components/Uptext";
- import Uptext from "../industryContactComp/Uptext"
- import Lowertext from "../industryContactComp/Lowertext"
-import Form from "../industryContactComp/FormInfo"
- import Footer from "./Footer";
- 
+import { Box } from "@mui/material";
+
+
+import Uptext from "../industryContactComp/Uptext"
+import Lowertext from "../industryContactComp/Lowertext"
+import Form from "../contactComp/Form";
+import Footer from "./Footer";
+import Navbar from "../homeComponents/Navbar";
 const Contact = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
   return (
     <>
- 
-      <Box sx={{
-        display: "flex", justifyContent: "center", alignItems: 'center', flexDirection: "column", width: "100%"
-      }} >
- 
+
+    <Navbar />
+
+        <Box sx={{
+          display: "flex", justifyContent: "center", alignItems: 'center', flexDirection: "column", width: "100%"
+        }} >
+      
+
         <Uptext />
         <Form />
         <Lowertext />
-       
-   
- 
+
+
+
       </Box>
       <Footer />
     </>
   );
 };
- 
+
 export default Contact;

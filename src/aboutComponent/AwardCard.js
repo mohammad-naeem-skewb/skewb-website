@@ -5,9 +5,14 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
+
+
 const AwardCard = ({name,img}) => {
+
+
+
   return (
-    <Card sx={{ maxWidth: 180, borderRadius: "15%" }}>
+    <Card sx={{ maxWidth: 180, borderRadius: "15%"}}>
       <CardActionArea>
         <CardMedia
           component="img"

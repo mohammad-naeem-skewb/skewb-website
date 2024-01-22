@@ -47,18 +47,19 @@ export default function Testimonials() {
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
+                  delay: 2500,
+                  disableOnInteraction: false,
                 }}
                 pagination={{
-                    clickable: true,
+                  clickable: true,
                 }}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
-                effect="cube" // Choose the transition effect (e.g., 'cube', 'fade', 'coverflow', 'flip')
-                speed={1000} // Set the transition speed in milliseconds
-                init={swiper => swiper.params.navigation.init = true} // Initialize navigation
+                effect="fade" // Use 'fade' for smoother transitions
+                speed={800} // Set the transition speed in milliseconds
+                direction="horizontal" // Set the direction to 'horizontal'
+                loop={true} // Enable loop to make it continuous} // Initialize navigation
             >
                 {testimonialArr.length > 0 &&
                     testimonialArr.map((item, index) => (

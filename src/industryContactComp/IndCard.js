@@ -9,24 +9,29 @@ import {
   Grid,
 } from "@mui/material";
 import { Link } from "react-router-dom";
- 
+
 export default function Card_ind({ img, heading, content }) {
   return (
     <Card
       sx={{
         width: 350,
         height: 350,
-        margin: "2%",
-        paddingTop: "5%",
-        marginLeft: "5%",
-        maxWidth: "100%",
+
+        // maxWidth: "100%",
         boxShadow: "lg",
         background: "rgba(29, 40, 56, .5)",
- 
+        margin: "2%",
         border: "1px solid #182233 ",
         borderRadius: "15px",
+        lineHeight: "180%",
+        textAlign: "center",
+        justifyContent: "center",
+        display: "flex",
+        flexDirection: "column",
+        // boder:"2px solid red",
+        transition: "transform 0.3s",
         ":hover": {
-          transform: "scale(1.5) rotate(0 deg)",
+          transform: "scale(1.01)",
           background: "black",
         },
       }}
@@ -37,7 +42,7 @@ export default function Card_ind({ img, heading, content }) {
           justifyContent: "center",
           display: "flex",
           margin: "1%",
-          marginTop: "2%",
+          // marginTop: "2%",
         }}
       >
         <CardMedia
@@ -50,7 +55,7 @@ export default function Card_ind({ img, heading, content }) {
           title="icon1"
         />
       </Grid>
- 
+
       <CardContent>
         <Typography
           gutterBottom
@@ -61,7 +66,10 @@ export default function Card_ind({ img, heading, content }) {
             display: "flex",
             textAlign: "center",
             color: "white",
-            fontFamily: "Inter, sans-serif;",
+            fontFamily: " Sora, sans-serif",
+            fontWeight: "500",
+            lineHeight: "130%",
+            fontSize: "24px",
           }}
         >
           {heading}
@@ -76,6 +84,7 @@ export default function Card_ind({ img, heading, content }) {
             paddingLeft: "6%",
             paddingRight: "6%",
             fontFamily: "Inter, sans-serif;",
+            marginBottom: "32px",
           }}
         >
           {content}
@@ -87,22 +96,31 @@ export default function Card_ind({ img, heading, content }) {
           variant="contained"
           sx={{
             backgroundColor: "#1c2427",
-            margin: "4%",
+            padding: "8px,24px",
             border: "none",
-            borderRadius: "10px",
+            borderRadius: "12px",
             display: "inline-block",
             boxShadow: "20",
             ":hover": {
-              color: "#C8D640",
+              
               background: "black",
               transform: "scale(1.15) rotate(0 deg)",
-              border:'1px solid #1c2427 '
+              border: "1px solid #C8D640 ",
             },
           }}
         >
-         <Link to="/explore" style={{ color: 'white', textDecoration: 'none' }}>
-      Explore
-    </Link>
+          <Link
+            to="/explore"
+            style={{ textDecoration: "none", color: "#ffffff" ,  ":hover": {
+              color: "#d6ff41",
+              background: "black",
+              transform: "scale(1.15) rotate(0 deg)",
+              border: "1px solid #C8D640 ",
+            } }}
+          >
+            {" "}
+            Explore
+          </Link>
         </Button>
       </CardActions>
     </Card>
