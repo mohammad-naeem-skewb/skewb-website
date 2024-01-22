@@ -134,10 +134,10 @@ const Industries = () => {
         </Grid>
 
         <Box>
-          <Subscribe />
+          {/* <Subscribe /> */}
         </Box>
       </Box>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
