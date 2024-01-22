@@ -1,15 +1,9 @@
 import logo from "../assets/skewbFooter.svg";
 import cube from "../assets/skewb_logo.gif";
 import React from "react";
-import {
-  Box,
-  Typography,
-  Link,
-  Grid,
-  Paper,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Typography, Grid, Paper } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Link } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
@@ -156,7 +150,7 @@ function Footer() {
                 }}
               >
                 <Link
-                  href="#"
+                  to="/"
                   style={{ color: "#8c99ab", textDecoration: "none" }}
                 >
                   Home
@@ -171,7 +165,7 @@ function Footer() {
                 }}
               >
                 <Link
-                  href="#"
+                  to="/about"
                   style={{ color: "#8c99ab", textDecoration: "none" }}
                 >
                   About
@@ -186,7 +180,7 @@ function Footer() {
                 }}
               >
                 <Link
-                  href="#"
+                  to="/service"
                   style={{ color: "#8c99ab", textDecoration: "none" }}
                 >
                   Services
@@ -201,7 +195,7 @@ function Footer() {
                 }}
               >
                 <Link
-                  href="#"
+                  to="/industries"
                   style={{ color: "#8c99ab", textDecoration: "none" }}
                 >
                   Industries
@@ -216,7 +210,7 @@ function Footer() {
                 }}
               >
                 <Link
-                  href="#"
+                  to="/contact"
                   style={{ color: "#8c99ab", textDecoration: "none" }}
                 >
                   Contact

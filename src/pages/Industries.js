@@ -87,7 +87,7 @@ const Industries = () => {
           textAlign: "center",
           flexDirection: "column",
             padding:"0% 5% 5% 5%",
-          border: "2px solid red",
+        //   border: "2px solid red",
           //   backgroundImage:'radial-gradient(circle farthest-side at 50% -170%, rgba(0, 0, 0, 0), #000), linear-gradient(#d6ff41, rgba(0, 0, 0, 0))',
         }}
       >
@@ -95,13 +95,14 @@ const Industries = () => {
 
         <Grid
           container
-          spacing={2}
+          spacing={1}
           sx={{
-            width: "100%",
+            // width: "100%",
             // marginLeft:"4%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            // border:"2px solid red"
           }}
         >
           {" "}
@@ -117,6 +118,8 @@ const Industries = () => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                // border:"2px solid yellow",
+                padding:"3%"
               }}
             >
               {" "}

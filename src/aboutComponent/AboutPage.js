@@ -325,9 +325,22 @@ const AboutPage = React.memo(() => {
           <Box></Box>
         </Box>
 
-        <SandipSir />
+      { isMatch||isMatchSmall? <Grid
+                item
+                xs={12}
+                md={4}
+                spacing={3}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                 
+                  color: "#B4D0B4",
+                }}
+              > <FounderCard img="https://assets-global.website-files.com/61eaca7810877f7aff9aaa4f/632948254201ff0a3232694f_Sandeep%20Pandey.png" name="Sandeep Pandey" position="CO-FOUNDER & CEO" content="Sandeep is a global leader in the field of Analytical consulting and digital transformation. He has a unique acumen for understanding data, its versatility and application beyond businesses along with a strong analytics consulting experience." url="https://in.linkedin.com/in/sandeeppandey100" /></Grid> :<SandipSir /> }
 
         {FoundersArr &&
+
           FoundersArr.map((ele) => {
             return (
               <Grid
@@ -339,10 +352,12 @@ const AboutPage = React.memo(() => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-
+                 
                   color: "#B4D0B4",
                 }}
               >
+
+                
                 <FounderCard
                   img={ele.img}
                   content={ele.content}

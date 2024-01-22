@@ -21,14 +21,14 @@ export default function Card_ind({ img, heading, content }) {
         boxShadow: "lg",
         background: "rgba(29, 40, 56, .5)",
         margin: "2%",
-        border: "1px solid #182233 ",
+        border: "1px solid white ",
         borderRadius: "15px",
         lineHeight: "180%",
         textAlign: "center",
         justifyContent: "center",
         display: "flex",
         flexDirection: "column",
-        // boder:"2px solid red",
+      
         transition: "transform 0.3s",
         ":hover": {
           transform: "scale(1.01)",
@@ -43,6 +43,7 @@ export default function Card_ind({ img, heading, content }) {
           display: "flex",
           margin: "1%",
           // marginTop: "2%",
+          // border:"2px solid red"
         }}
       >
         <CardMedia

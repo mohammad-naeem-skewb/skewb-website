@@ -1,5 +1,5 @@
 // mui imports
-import { Box, CssBaseline } from "@mui/material";
+import { Container, CssBaseline } from "@mui/material";
 import About from "./pages/About";
 import {
   createTheme,
@@ -57,7 +57,7 @@ const App = () => {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box maxWidth="xl">
+        <Container maxWidth="xl">
           <Routes>
             <Route path="/" element={<Home />} exact />
             <Route path="/about" element={<About />} />
@@ -69,7 +69,7 @@ const App = () => {
             <Route path="/serviceExplore" element={<ExploreService />} />
           </Routes>
           <ToastContainer />
-        </Box>
+        </Container>
       </ThemeProvider>
     </BrowserRouter> 
   );

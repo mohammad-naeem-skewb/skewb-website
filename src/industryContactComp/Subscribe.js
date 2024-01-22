@@ -19,7 +19,8 @@ export default function Subscribe() {
           height:'100%',
           position:'relative',
           overflow:'hidden',
-          flexDirection:'column'
+          flexDirection:'column',
+          marginTop:"20px"
  
         }}
       >

@@ -83,7 +83,6 @@ function SandipSir({ name, img, content, position }) {
         marginLeft: "20%",
         height: "100%",
         backgroundColor: "rgba(255, 255, 255, 0.0)",
-        
       }}
     >
       <Box
@@ -107,7 +106,12 @@ function SandipSir({ name, img, content, position }) {
             {" "}
             <Box>
               {" "}
-              <img src="https://assets-global.website-files.com/61eaca7810877f7aff9aaa4f/632948254201ff0a3232694f_Sandeep%20Pandey.png" width={"100%"} height={"100%"} alt="" />{" "}
+              <img
+                src="https://assets-global.website-files.com/61eaca7810877f7aff9aaa4f/632948254201ff0a3232694f_Sandeep%20Pandey.png"
+                width={"100%"}
+                height={"100%"}
+                alt=""
+              />{" "}
             </Box>
             <Typography
               gutterBottom
@@ -123,8 +127,7 @@ function SandipSir({ name, img, content, position }) {
               component="div"
               sx={{ textAlign: "center", color: "#d6ff41" }}
             >
-         CO-FOUNDER & CEO
-
+              CO-FOUNDER & CEO
             </Typography>
           </Box>
         </Box>
@@ -137,12 +140,30 @@ function SandipSir({ name, img, content, position }) {
             lineHeight: "180%",
           }}
         >
-          Sandeep is a global leader in the field of Analytical consulting and digital transformation. He has a unique acumen for understanding data, its versatility and application beyond businesses along with a strong analytics consulting experience.
-          <Button size="small" color="primary" style={{ color: "#d6ff41", display:"block" }}>
-            {/* < a  href=" " > Connect </a> */}
+          Sandeep is a global leader in the field of Analytical consulting and
+          digital transformation. He has a unique acumen for understanding data,
+          its versatility and application beyond businesses along with a strong
+          analytics consulting experience.
+          <Button
+            size="small"
+            color="primary"
+            style={{
+              color: "#d6ff41",
+              fontSize: "13px",
+              fontFamily: "Inter, sans-serif",
+            }}
+          >
             <Link
-              to="https://in.linkedin.com/in/sandeeppandey100"
-              style={{ textDecoration: "none", color: "#d6ff41" }}
+              to={"https://in.linkedin.com/in/sandeeppandey100"}
+              style={{
+                textDecoration: "none",
+                color: "white",
+                padding: "0% 20% 0% 20%",
+                backgroundColor: "#0077b5",
+                padding: "15%",
+                marginLeft: "50%",
+                borderRadius: "15px",
+              }}
             >
               {" "}
               Connect{" "}

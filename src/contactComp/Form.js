@@ -1,9 +1,17 @@
 import React, { useState } from "react";
-import { Button, Box, Grid, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  Box,
+  Grid,
+  TextField,
+  Typography,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import Loader from "../loader/Loader";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+ 
 const Form = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -12,8 +20,11 @@ const Form = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [loader, setLoader] = useState(false);
-  console.log("error: ", error);
-
+  // console.log("error: ", error);
+ 
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+ 
   function firstNameClick(e) {
     setFirstName(e.target.value);
   }
@@ -26,11 +37,11 @@ const Form = () => {
   function emailClick(e) {
     setEmail(e.target.value);
   }
-
+ 
   function messageClick(e) {
     setMessage(e.target.value);
   }
-
+ 
   const postFormData = async () => {
     setLoader(true);
     try {
@@ -41,7 +52,7 @@ const Form = () => {
         company_name: companyName,
         message: message,
       });
-
+ 
       //   console.log("data: ", response.data);
       setLoader(false);
       toast.success(`${response.data}!`);
@@ -51,7 +62,7 @@ const Form = () => {
       setLoader(false);
     }
   };
-
+ 
   function onsubmit(e) {
     e.preventDefault();
     if (!firstName) {
@@ -70,7 +81,7 @@ const Form = () => {
       setError("");
     }
   }
-
+ 
   const inputStyles = {
     color: "white",
     background: "#1d2838",
@@ -83,7 +94,7 @@ const Form = () => {
       borderColor: "#6F7E8C",
     },
   };
-
+ 
   return (
     <>
       {loader && <Loader />}
@@ -92,7 +103,7 @@ const Form = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            width: "50%",
+            width: isMatch ? "100%" : "50%",
           }}
         >
           <Grid container spacing={2}>
@@ -198,5 +209,5 @@ const Form = () => {
     </>
   );
 };
-
+ 
 export default Form;
