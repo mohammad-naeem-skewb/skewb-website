@@ -8,8 +8,12 @@ import img2 from '../assets/img2.png';
 import './Testimonials.css';
 import Carousel from './Carousel';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 export default function AutoCarousel() {
+  const theme = useTheme();
+  const isMedium = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
   const contentArray = [
     {
       image: img1,
@@ -33,9 +37,9 @@ export default function AutoCarousel() {
           disableOnInteraction: false,
         }}
         pagination={{
-          clickable: true,
+          clickable: isMedium||isMedium?false:true,
         }}
-        navigation={true}
+        navigation={isMedium||isMedium?false:true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
         effect="fade" // Use 'fade' for smoother transitions

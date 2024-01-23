@@ -13,11 +13,12 @@ import cloudNine from "../assets/cloudNine.svg"
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { Box, Card, Typography } from '@mui/material';
+import { Box, Card, Typography, useMediaQuery, useTheme } from '@mui/material';
 import Cards from './Cards';
-
 export default function Testimonials() {
-
+    const theme = useTheme();
+    const isMedium = useMediaQuery(theme.breakpoints.down("md"));
+    const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
     const testimonialArr = [
         {
             image: delhivery,
@@ -36,24 +37,29 @@ export default function Testimonials() {
         }
     ];
 
-    console.log(testimonialArr)
+    
 
     return (
         <Box sx={{ padding: '3%' }}>
-            <Typography variant="h3" sx={{ color: 'white', textAlign: 'center', fontSize: '66px', fontFamily: 'Sora, sans-serif', lineHeight: '106%', padding: '3%', marginBottom: '2%' }}>
+            <Typography variant="h4" sx={{
+                color: 'white', textAlign: 'center', padding: '3%', marginBottom: '2%', lineHeight: "100%",
+                fontFamily: "Sora, sans-serif",
+                fontWeight: "500",
+                fontPalette: "80px"
+            }}>
                 Hear from our Clients
             </Typography>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
-                  delay: 2500,
-                  disableOnInteraction: false,
+                    delay: 2500,
+                    disableOnInteraction: false,
                 }}
                 pagination={{
-                  clickable: true,
+                    clickable:isMedium||isSmall?false:true,
                 }}
-                navigation={true}
+                navigation={isMedium||isSmall?false:true}
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
                 effect="fade" // Use 'fade' for smoother transitions

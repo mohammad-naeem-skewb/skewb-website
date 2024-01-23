@@ -3,11 +3,11 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import { CardActionArea } from "@mui/material";
+import { CardActionArea, useMediaQuery } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import img1 from "../assets/serviceAssets/tar.gif";
 import img2 from "../assets/serviceAssets/cloud.gif";
 import img3 from "../assets/serviceAssets/artificial.gif";
@@ -18,7 +18,7 @@ import da from "../assets/serviceAssets/d_a_.png";
 import wa from "../assets/serviceAssets/w_a.png";
 import ca from "../assets/serviceAssets/c_a.png";
 import dg from "../assets/serviceAssets/dg.png";
-
+import GrowthDriversCard from "./GrowthDriversCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import CarouselService from "./CarouselService";
 // Import Swiper styles
@@ -30,6 +30,9 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Button, CardActions } from "@mui/material";
 
 export default function Services() {
+  const theme = useTheme();
+  const isMedium = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
   const serviceArr = [
     {
       image: ma,
@@ -63,12 +66,12 @@ export default function Services() {
     },
   ];
 
-const gifArr = [{heading1:"Ensemble Model",img:img3,heading2:"Millions Of Intractions"},
-{heading1:"Cloud Infra",img:img2,heading2:"Scalable and Secure Tech"},
-{heading1:"Productive Power",img:img1,heading2:"90%+ Forecasting accuracy"}
+  const gifArr = [{ heading1: "Ensemble Model", img: img3, heading2: "Millions Of Intractions" },
+  { heading1: "Cloud Infra", img: img2, heading2: "Scalable and Secure Tech" },
+  { heading1: "Productive Power", img: img1, heading2: "90%+ Forecasting accuracy" }
 
 
-]
+  ]
 
 
   return (
@@ -157,9 +160,9 @@ const gifArr = [{heading1:"Ensemble Model",img:img3,heading2:"Millions Of Intrac
             disableOnInteraction: false,
           }}
           pagination={{
-            clickable: true,
+            clickable: isMedium||isSmall?false:true,
           }}
-          navigation={true}
+          navigation={isMedium||isSmall?false:true}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
           effect="fade" // Use 'fade' for smoother transitions
@@ -178,16 +181,16 @@ const gifArr = [{heading1:"Ensemble Model",img:img3,heading2:"Millions Of Intrac
           ))}
         </Swiper>
 
-        <Grid item xs={12} md={6} style={{ paddingTop: "9%" }}>
+        <Grid item xs={12} md={6} style={{ paddingTop: "9%" }} id="productDemo" >
           <Typography variant="h4" gutterBottom>
             <span
               style={{
-                color: "#d6ff41",
+
                 textAlign: "center",
-                color: "#d6ff41",
+
                 letterSpacing: "-.5px",
                 fontFamily: "Sora, sans-serif",
-                fontFamily: "500",
+
                 lineHeight: "120%",
                 color: "#ffffff",
 
@@ -260,184 +263,18 @@ const gifArr = [{heading1:"Ensemble Model",img:img3,heading2:"Millions Of Intrac
           </Typography>
         </Box>
       </Box>
-      <Grid container spacing={3} sx={{height:"50%"}} >
-       
-        <Grid
-          item
-          height= "500px"
-          xs={12}
-          md={4}
-          style={{
-            maxWidth: "25rem",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "6.75%",
-            color: "#B4D0B4",
-          }}
-        >
-          <Card
-            sx={{
-              borderRadius: "20px",
-              backgroundColor: "rgba(255, 255, 255, 0.0)",
-              color: "#d6ff41",
-             
-              padding: "6.75%"
-            }}
-          >
-            <CardActionArea>
-              <CardContent sx={{ padding: "10%" }}>
-                <span >
-                  <Typography gutterBottom variant="h6" component="div">
-                    Ensemble Model
-                  </Typography>
-                  <Typography>
-                    <br />{" "}
-                  </Typography>
-                  <CardMedia
-                    component="img"
-                    height="60%"
-                    image={img3}
-                    alt="Ensemble models"
-                    style={{ borderRadius: "50%" }}
-                  />
-                </span>
-                <Typography>
-                  <br />
-                  <br />{" "}
-                </Typography>
-                <Typography variant="body2" color="#B4D0B4">
-                  <span style={{ fontSize: "1.35rem" }}>
-                    {" "}
-                    <b>Millions of interactions</b>
-                  </span>
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
+      <Grid container spacing={3} sx={{
+        height: "50%",
+        display: "flex", justifyContent: "center", alignItems: "center"
 
 
-        <Grid
-          item
-          xs={12}
-          md={4}
-          style={{
-            maxWidth: "25rem",
-            height: "500px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "6.75%",
-            color: "#B4D0B4",
-          }}
-        >
-          <Card
-            sx={{
-              borderRadius: "20px",
-              backgroundColor: "rgba(255, 255, 255, 0.0)",
-              color: "#d6ff41",
-              padding: "5%",
-              // border:"2px solid red"
-            }}
-          >
-            <CardActionArea>
-              <CardContent sx={{ padding: "10%" }}>
-                <span>
-                  <Typography
-                    gutterBottom
-                    variant="h6"
-                    component="div"
-                    style={{ textAlign: "center" }}
-                  >
-                    Cloud Infra
-                  </Typography>
-                  <Typography>
-                    <br />{" "}
-                  </Typography>
-                  <CardMedia
-                    component="img"
-                    image={img2}
-                    alt="Cloud Infra"
-                    style={{ borderRadius: "50%" }}
-                  />
-                </span>
-                <Typography>
-                  <br />
-                  <br />{" "}
-                </Typography>
-                <Typography variant="body2" color="#B4D0B4">
-                  <span style={{ fontSize: "1.35rem"}}>
-                    {" "}
-                    <b>Scalable and Secure Tech</b>
-                  </span>
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
+      }} >
 
-
-        <Grid
-          item
-          xs={12}
-          md={4}
-          style={{
-            maxWidth: "25rem",
-            height: "500px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "6.75%",
-            color: "#B4D0B4",
-          }}
-        >
-          <Card
-            sx={{
-              borderRadius: "20px",
-              backgroundColor: "rgba(255, 255, 255, 0.0)",
-              color: "#d6ff41",
-              padding: "10%",
-              // border:"2px solid red"
-            }}
-          >
-            <CardActionArea>
-              <CardContent sx={{ padding: "10%" }}>
-                <span>
-                  <Typography
-                    gutterBottom
-                    variant="h6"
-                    component="div"
-                    style={{ textAlign: "center" }}
-                  >
-                   Productive Power
-                  </Typography>
-                  <Typography>
-                    <br />{" "}
-                  </Typography>
-                  <CardMedia
-                    component="img"
-                    image={img1}
-                    alt="Productive Power"
-                    style={{ borderRadius: "50%" }}
-                  />
-                </span>
-                <Typography>
-                  <br />
-                  <br />{" "}
-                </Typography>
-                <Typography variant="body2" color="#B4D0B4">
-                  <span style={{ fontSize: "1.35rem"}}>
-                    {" "}
-                    <b>90%+ Forecasting accuracy</b>
-                  </span>
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-        
-       
+        {
+          gifArr && gifArr.map((ele) => {
+            return <GrowthDriversCard text1={ele.heading1} text2={ele.heading2} img={ele.img} />
+          })
+        }
       </Grid>
 
 

@@ -91,8 +91,10 @@ const Form = () => {
       textAlign: "center",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#6F7E8C",
+      borderColor: "#6F7E8C"
     },
+    
+    
   };
  
   return (

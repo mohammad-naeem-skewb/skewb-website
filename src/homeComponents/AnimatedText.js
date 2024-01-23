@@ -46,7 +46,7 @@ const AnimatedText = () => {
       }}
       className={fadeProp.fade}
     >
-     <h3> Welcome To </h3> {WORDS_TO_ANIMATE[wordOrder]}
+     <h3> Welcome to </h3> {WORDS_TO_ANIMATE[wordOrder]}
       
     </Typography>
 

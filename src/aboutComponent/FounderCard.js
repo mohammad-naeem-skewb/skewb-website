@@ -60,24 +60,29 @@ function FounderCard({ img, name, position, content, url }) {
         <Button
           size="small"
           color="primary"
-          style={{
+          sx={{
             color: "#d6ff41",
             fontSize: "13px",
             fontFamily: "Inter, sans-serif",
-         
+            
+
           }}
         >
           <Link
             to={url}
+            target="blank"
             style={{
               textDecoration: "none",
               color: "white",
-              padding:"0% 20% 0% 20%",
-              backgroundColor: "#0077b5",
-              padding: "15%",
+             
+              backgroundColor: 'rgba(0, 119, 181, 0.8)',
+              padding: "10%",
               marginLeft: "50%",
-          borderRadius:"15px",
-            
+              borderRadius: "15px",
+              "&:hover": {
+              
+                backgroundColor:"red"
+              },
             }}
           >
             {" "}

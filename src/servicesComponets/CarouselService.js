@@ -1,8 +1,11 @@
-import { Container, Typography, Grid, Box, Button } from "@mui/material";
+import { Container, Typography, Grid, Box, Button, useTheme, useMediaQuery } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function CarouselService({ img, content, heading }) {
+  const theme = useTheme();
+  const isMedium = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmall = useMediaQuery(theme.breakpoints.down("sm"))
   return (
     <Box sx={{ color: "white", position: "relative" }}>
       <Box
@@ -12,33 +15,41 @@ function CarouselService({ img, content, heading }) {
           alignItems: "center",
           marginTop: "0px",
           padding: "5%",
+          flexDirection: isMedium || isSmall ? 'column' : 'row',
+
         }}
       >
         <Box sx={{ width: "100%", padding: "5%" }}>
-          <img src={img} width={"100%"} height={"100%"} />
+          <img src={img} width={"100%"} height={"100%"} alt={heading} />
         </Box>
-        <Box sx={{ marginTop: "5%", width: "100%", padding: "3%" }}>
+        <Box sx={{ marginTop: "5%", width: "100%", padding: "3%", textAlign: isMedium || isSmall ? 'center' : 'left', }}>
           <Typography variant="h4">{heading}</Typography>
           <Typography
             sx={{
               marginTop: "5%",
-              textAlign: "left",
+              // textAlign: "left",
               fontSize: "20px",
               lineHeight: "176%",
               color: "#616d7e",
+              marginBottom:"4%",
+              textAlign: isMedium || isSmall ? 'center' : 'left',
             }}
           >
             {content}
           </Typography>
           <Button
-            size="small"
-            style={{
+            size="medium"
+            sx={{
               color: "#d6ff41",
-              borderRadius: "15px",
-              padding: "16px 35px",
-              fontSize: "18px",
+              borderRadius: "18px",
+              // padding: "16px 35px",
+              // fontSize: "18px",
+              width:isMedium||isMedium?"30%":"20%",
               lineHeight: "140%",
+              border:"1px solid grey",
+              padding: "0.5 1rem",
               
+
             }}
           >
             <Link

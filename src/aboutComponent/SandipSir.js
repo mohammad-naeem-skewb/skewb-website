@@ -155,12 +155,13 @@ function SandipSir({ name, img, content, position }) {
           >
             <Link
               to={"https://in.linkedin.com/in/sandeeppandey100"}
+              target="blank"
               style={{
                 textDecoration: "none",
                 color: "white",
                 padding: "0% 20% 0% 20%",
                 backgroundColor: "#0077b5",
-                padding: "15%",
+                padding: "10%",
                 marginLeft: "50%",
                 borderRadius: "15px",
               }}

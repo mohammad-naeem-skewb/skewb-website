@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, useMediaQuery, useTheme } from "@mui/material";
 
 import IndCard from "../industryContactComp/IndCard";
 import Indtext from "../industryContactComp/indtext";
@@ -77,6 +77,7 @@ const Industries = () => {
         "The luxury goods market is estimated to grow by USD 33.53 billion, growing at a CAGR of over 2.59% between 2020 and 2025.",
     },
   ];
+
   return (
     <>
       <Navbar />
@@ -86,8 +87,8 @@ const Industries = () => {
           alignItems: "center",
           textAlign: "center",
           flexDirection: "column",
-            padding:"0% 5% 5% 5%",
-        //   border: "2px solid red",
+          padding: "0% 5% 5% 5%",
+          //   border: "2px solid red",
           //   backgroundImage:'radial-gradient(circle farthest-side at 50% -170%, rgba(0, 0, 0, 0), #000), linear-gradient(#d6ff41, rgba(0, 0, 0, 0))',
         }}
       >
@@ -95,14 +96,11 @@ const Industries = () => {
 
         <Grid
           container
-          spacing={1}
           sx={{
-            // width: "100%",
-            // marginLeft:"4%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            // border:"2px solid red"
+            // border: "2px solid red",
           }}
         >
           {" "}
@@ -116,10 +114,10 @@ const Industries = () => {
               key={index}
               style={{
                 display: "flex",
-                justifyContent: "space-between",
+                justifyContent: "center",
                 alignItems: "center",
                 // border:"2px solid yellow",
-                padding:"3%"
+                padding: "3%"
               }}
             >
               {" "}
@@ -132,10 +130,6 @@ const Industries = () => {
             </Grid>
           ))}
         </Grid>
-
-        <Box>
-          {/* <Subscribe /> */}
-        </Box>
       </Box>
       <Footer />
     </>

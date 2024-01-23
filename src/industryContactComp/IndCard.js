@@ -112,6 +112,7 @@ export default function Card_ind({ img, heading, content }) {
         >
           <Link
             to="/explore"
+            target="blank"
             style={{ textDecoration: "none", color: "#ffffff" ,  ":hover": {
               color: "#d6ff41",
               background: "black",

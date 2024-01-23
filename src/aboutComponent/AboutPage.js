@@ -79,7 +79,7 @@ const AboutPage = React.memo(() => {
                   color: "#ffffff",
                 }}
               >
-                What is Skewb ?
+                What is Skewb?
               </div>
             </Typography>
 
@@ -111,8 +111,10 @@ const AboutPage = React.memo(() => {
             alignItems: "center",
             justifyContent: "center",
             padding: "2%",
-
+            // border:"2px solid red",
             marginTop: "4%",
+            marginLeft: isMatch||isMatchSmall? "3%":"0"
+            
           }}
         >
           <motion.div
@@ -129,7 +131,7 @@ const AboutPage = React.memo(() => {
           </motion.div>
         </Grid>
 
-        <Grid item xs={12} md={6} style={{ padding: "2%", paddingTop: "8%" }}>
+        <Grid item xs={12} md={6} style={{ padding: "2%", paddingTop: "8%",  marginLeft:isMatch||isMatchSmall?"5%":"0" }}>
           <motion.div
             style={{ textRendering: "optimizeLegibility" }}
             initial={{ opacity: 0, y: 100 }}
@@ -145,6 +147,9 @@ const AboutPage = React.memo(() => {
                 boxShadow: "1px 1px 1px #d6ff41",
                 color: "#d6ff41",
                 marginTop: "10%",
+              
+              
+                
               }}
             >
               <CardActionArea>
@@ -155,7 +160,7 @@ const AboutPage = React.memo(() => {
                     // border: "2px red solid",
                     transition: "all .2s",
                     ":hover": {
-                      boxShadow: "none",
+                    
                       boxShadow: "2px 4px 0px #black",
                       transform: "translateY(-10px)",
                       transition: "transform 0.3s ease-in-out",
@@ -210,9 +215,9 @@ const AboutPage = React.memo(() => {
           </motion.div>
         </Grid>
 
-        <Grid item xs={12} md={6} style={{ padding: "2%", paddingTop: "8%" }}>
+        <Grid item xs={12} md={6} style={{ padding: "2%", paddingTop: "8%", marginLeft:isMatch||isMatchSmall?"5%":"0" }}>
           <motion.div
-            style={{ textRendering: "optimizeLegibility" }}
+            style={{ textRendering: "optimizeLegibility" }} 
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: customEase, delay: 0.2 }}
@@ -291,15 +296,16 @@ const AboutPage = React.memo(() => {
         <Box sx={{ padding: "3%" }}>
           <Box sx={{ padding: "5%" }}>
             <Typography
-              variant="h3"
+              variant="h4"
               sx={{
                 textAlign: "center",
-                color: "#d6ff41",
+               
                 letterSpacing: "-.5px",
                 fontFamily: "Sora, sans-serif",
-                fontFamily: "500",
+                
                 lineHeight: "120%",
                 color: "#ffffff",
+                padding:"5%"
               }}
             >
               {" "}
@@ -312,6 +318,8 @@ const AboutPage = React.memo(() => {
                 fontFamily: "Inter, sans-serif",
                 fontSize: "18px",
                 lineHeight: "180%",
+                // padding:"5%",
+                // border:"2px solid ted"
               }}
             >
               {" "}
@@ -380,13 +388,12 @@ const AboutPage = React.memo(() => {
             color: "#B4D0B4",
           }}
         >
-          <Typography variant="h3" gutterBottom>
-            <center>Awards and Recognitions </center>
-            <Typography>
-              <br /> <br />{" "}
-            </Typography>
+          <Typography variant="h4" gutterBottom>
+            <center sx={{marginBottom:"50%"}} >Awards and Recognitions </center>
+          
+            
 
-            <Typography variant="subtitle1" gutterBottom>
+            <Typography variant="subtitle1" gutterBottom sx={{padding:"2% 2% 0 2%"}}>
               <center>
                 We are excited to share our recent awards and recognition. We
                 work diligently to make our clients happy, always upholding
