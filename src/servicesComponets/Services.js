@@ -160,9 +160,9 @@ export default function Services() {
             disableOnInteraction: false,
           }}
           pagination={{
-            clickable: isMedium||isSmall?false:true,
+            clickable: isMedium || isSmall ? false : true,
           }}
-          navigation={isMedium||isSmall?false:true}
+          navigation={isMedium || isSmall ? false : true}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
           effect="fade" // Use 'fade' for smoother transitions
@@ -265,8 +265,8 @@ export default function Services() {
       </Box>
       <Grid container spacing={3} sx={{
         height: "50%",
-        display: "flex", justifyContent: "center", alignItems: "center"
-
+        display: "flex", justifyContent: "center", alignItems: "center",
+        // border: "2px solid red"
 
       }} >
 

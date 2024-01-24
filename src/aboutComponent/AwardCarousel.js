@@ -13,10 +13,13 @@ import StartupAward from "../assets/awardslogo/startup_award_tajlogo.png";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Card, Typography, useMediaQuery, useTheme } from "@mui/material";
 import AwardCard from "./AwardCard";
 
 export default function AwardCarousel() {
+  const theme = useTheme();
+  const isMedium = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
   const awardsArr = [
     { AwardName: "G20 Summit", img: G20 },
     { AwardName: "Hartron", img: Hartron },
@@ -24,7 +27,7 @@ export default function AwardCarousel() {
   ];
 
   return (
-    <Box sx={{ padding: "3%" }}>
+    <Box sx={{ padding: "3%", width:isMedium||isSmall?"40%":"20%" , margin: "auto" }}>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -32,10 +35,7 @@ export default function AwardCarousel() {
           delay: 2500,
           disableOnInteraction: false,
         }}
-        // pagination={{
-        //   clickable: true,
-        // }}
-        // navigation={true}
+
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
         effect="fade" // Use 'fade' for smoother transitions

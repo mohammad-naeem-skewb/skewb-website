@@ -17,11 +17,14 @@ function FounderCard({ img, name, position, content, url }) {
         borderRadius: "8%",
         backgroundColor: "rgba(255, 255, 255, 0.0)",
         color: "#d6ff41",
-        height: "100%",
+        //  border:"2px solid red",
+        width: "100%",
+        height: "100%"
+
       }}
     >
       <CardActionArea>
-        <CardMedia component="img" height="100%" image={img} alt={name} />
+        <CardMedia component="img" height="100%" width="100%" image={img} alt={name} sx={{}} />
         <CardContent>
           <Typography
             gutterBottom
@@ -64,7 +67,7 @@ function FounderCard({ img, name, position, content, url }) {
             color: "#d6ff41",
             fontSize: "13px",
             fontFamily: "Inter, sans-serif",
-            
+
 
           }}
         >
@@ -73,16 +76,12 @@ function FounderCard({ img, name, position, content, url }) {
             target="blank"
             style={{
               textDecoration: "none",
-              color: "white",
-             
-              backgroundColor: 'rgba(0, 119, 181, 0.8)',
+              color: "black",
+
+              backgroundColor: '#d6ff41',
               padding: "10%",
               marginLeft: "50%",
-              borderRadius: "15px",
-              "&:hover": {
-              
-                backgroundColor:"red"
-              },
+              borderRadius: "10px",
             }}
           >
             {" "}

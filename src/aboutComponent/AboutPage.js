@@ -29,7 +29,7 @@ const AboutPage = React.memo(() => {
 
   const customEase = [0.6, -0.05, 0.01, 0.99];
 
-  
+
 
   const FoundersArr = [
     {
@@ -59,8 +59,8 @@ const AboutPage = React.memo(() => {
   ];
 
   return (
-    <Box sx={{ flexGrow: 1, color: "#e6ffe6"}}>
-      <Grid container spacing={3} sx={{padding:"2%"}}>
+    <Box sx={{ flexGrow: 1, color: "#e6ffe6" }}>
+      <Grid container spacing={3} sx={{ padding: "2%" }}>
         <Grid item xs={12} md={6} style={{ paddingTop: "4%", marginTop: "8%" }}>
           <motion.div
             style={{ textRendering: "optimizeLegibility" }}
@@ -72,7 +72,7 @@ const AboutPage = React.memo(() => {
               <div
                 style={{
                   textAlign: "center",
-                
+
                   letterSpacing: "-.5px",
                   fontFamily: "Sora, sans-serif",
                   lineHeight: "120%",
@@ -113,8 +113,8 @@ const AboutPage = React.memo(() => {
             padding: "2%",
             // border:"2px solid red",
             marginTop: "4%",
-            marginLeft: isMatch||isMatchSmall? "3%":"0"
-            
+            marginLeft: isMatch || isMatchSmall ? "3%" : "0"
+
           }}
         >
           <motion.div
@@ -131,7 +131,7 @@ const AboutPage = React.memo(() => {
           </motion.div>
         </Grid>
 
-        <Grid item xs={12} md={6} style={{ padding: "2%", paddingTop: "8%",  marginLeft:isMatch||isMatchSmall?"5%":"0" }}>
+        <Grid item xs={12} md={6} style={{ padding: "2%", paddingTop: "8%", marginLeft: isMatch || isMatchSmall ? "5%" : "0" }}>
           <motion.div
             style={{ textRendering: "optimizeLegibility" }}
             initial={{ opacity: 0, y: 100 }}
@@ -147,9 +147,9 @@ const AboutPage = React.memo(() => {
                 boxShadow: "1px 1px 1px #d6ff41",
                 color: "#d6ff41",
                 marginTop: "10%",
-              
-              
-                
+
+
+
               }}
             >
               <CardActionArea>
@@ -160,7 +160,7 @@ const AboutPage = React.memo(() => {
                     // border: "2px red solid",
                     transition: "all .2s",
                     ":hover": {
-                    
+
                       boxShadow: "2px 4px 0px #black",
                       transform: "translateY(-10px)",
                       transition: "transform 0.3s ease-in-out",
@@ -215,9 +215,9 @@ const AboutPage = React.memo(() => {
           </motion.div>
         </Grid>
 
-        <Grid item xs={12} md={6} style={{ padding: "2%", paddingTop: "8%", marginLeft:isMatch||isMatchSmall?"5%":"0" }}>
+        <Grid item xs={12} md={6} style={{ padding: "2%", paddingTop: "8%", marginLeft: isMatch || isMatchSmall ? "5%" : "0" }}>
           <motion.div
-            style={{ textRendering: "optimizeLegibility" }} 
+            style={{ textRendering: "optimizeLegibility" }}
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: customEase, delay: 0.2 }}
@@ -299,13 +299,13 @@ const AboutPage = React.memo(() => {
               variant="h4"
               sx={{
                 textAlign: "center",
-               
+
                 letterSpacing: "-.5px",
                 fontFamily: "Sora, sans-serif",
-                
+
                 lineHeight: "120%",
                 color: "#ffffff",
-                padding:"5%"
+                padding: "5%"
               }}
             >
               {" "}
@@ -333,19 +333,19 @@ const AboutPage = React.memo(() => {
           <Box></Box>
         </Box>
 
-      { isMatch||isMatchSmall? <Grid
-                item
-                xs={12}
-                md={4}
-                spacing={3}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                 
-                  color: "#B4D0B4",
-                }}
-              > <FounderCard img="https://assets-global.website-files.com/61eaca7810877f7aff9aaa4f/632948254201ff0a3232694f_Sandeep%20Pandey.png" name="Sandeep Pandey" position="CO-FOUNDER & CEO" content="Sandeep is a global leader in the field of Analytical consulting and digital transformation. He has a unique acumen for understanding data, its versatility and application beyond businesses along with a strong analytics consulting experience." url="https://in.linkedin.com/in/sandeeppandey100" /></Grid> :<SandipSir /> }
+
+        {isMatch || isMatchSmall ? <Grid
+          item
+          xs={12}
+          md={4}
+          spacing={3}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#B4D0B4",
+          }}
+        > <FounderCard img="https://assets-global.website-files.com/61eaca7810877f7aff9aaa4f/632948254201ff0a3232694f_Sandeep%20Pandey.png" name="Sandeep Pandey" position="CO-FOUNDER & CEO" content="Sandeep is a global leader in the field of Analytical consulting and digital transformation. He has a unique acumen for understanding data, its versatility and application beyond businesses along with a strong analytics consulting experience." url="https://in.linkedin.com/in/sandeeppandey100" /></Grid> : <SandipSir />}
 
         {FoundersArr &&
 
@@ -355,17 +355,19 @@ const AboutPage = React.memo(() => {
                 item
                 xs={12}
                 md={4}
-                spacing={3}
+                spacing={2}
                 style={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                 
+                  // border: "2px solid blue",
                   color: "#B4D0B4",
+                  // width:"100%",
+                  padding:"3%"
                 }}
               >
 
-                
+
                 <FounderCard
                   img={ele.img}
                   content={ele.content}
@@ -389,11 +391,11 @@ const AboutPage = React.memo(() => {
           }}
         >
           <Typography variant="h4" gutterBottom>
-            <center sx={{marginBottom:"50%"}} >Awards and Recognitions </center>
-          
-            
+            <center sx={{ marginBottom: "50%" }} >Awards and Recognitions </center>
 
-            <Typography variant="subtitle1" gutterBottom sx={{padding:"2% 2% 0 2%"}}>
+
+
+            <Typography variant="subtitle1" gutterBottom sx={{ padding: "2% 2% 0 2%" }}>
               <center>
                 We are excited to share our recent awards and recognition. We
                 work diligently to make our clients happy, always upholding
@@ -428,7 +430,7 @@ const AboutPage = React.memo(() => {
         </marquee>
         </Box> */}
 
-{/* <Box sx={{ padding: '3%' }}>
+        {/* <Box sx={{ padding: '3%' }}>
   <Swiper
     spaceBetween={30}
     centeredSlides={true}
@@ -455,7 +457,7 @@ const AboutPage = React.memo(() => {
   </Swiper>
 </Box> */}
 
-        
+
 
       </Grid>
       <AwardCarousel />

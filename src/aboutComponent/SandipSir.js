@@ -158,12 +158,12 @@ function SandipSir({ name, img, content, position }) {
               target="blank"
               style={{
                 textDecoration: "none",
-                color: "white",
+                color: "black",
                 padding: "0% 20% 0% 20%",
-                backgroundColor: "#0077b5",
+                backgroundColor: "#d6ff41",
                 padding: "10%",
                 marginLeft: "50%",
-                borderRadius: "15px",
+                borderRadius: "10px",
               }}
             >
               {" "}

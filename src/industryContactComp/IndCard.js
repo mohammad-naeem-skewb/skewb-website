@@ -8,9 +8,17 @@ import {
   CardContent,
   Grid,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Card_ind({ img, heading, content }) {
+  const strArr = heading.split(" ");
+  const title = strArr.filter((ele)=>{
+    return ele!==''
+  })[0];
+
+  const navigate = useNavigate();
+  
+ 
   return (
     <Card
       sx={{
@@ -93,6 +101,8 @@ export default function Card_ind({ img, heading, content }) {
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
         <Button
+          component={Link}
+          target="_blank"
           type="submit"
           variant="contained"
           sx={{
@@ -110,8 +120,10 @@ export default function Card_ind({ img, heading, content }) {
             },
           }}
         >
+
+{/* <Link to={`/user/${userId}`}>Go to User Profile</Link> */}
           <Link
-            to="/explore"
+            to={`/industryExplore/${title}`}
             target="blank"
             style={{ textDecoration: "none", color: "#ffffff" ,  ":hover": {
               color: "#d6ff41",
