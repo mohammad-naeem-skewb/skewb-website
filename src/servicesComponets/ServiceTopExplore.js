@@ -1,8 +1,8 @@
 import React from "react";
 import { Typography, Paper, useTheme, useMediaQuery } from "@mui/material";
-import image from "../assets/serviceAssets/m_a.png";
+// import image from "../assets/serviceAssets/m_a.png";
 
-const Top = () => {
+const Top = ({image, title}) => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   const isMatchSmall = useMediaQuery(theme.breakpoints.down("sm"));
@@ -25,7 +25,7 @@ const Top = () => {
   >
     {/* Heading 1 */}
     <Typography variant="h3" gutterBottom>
-      Marketing Analytics
+      {title}
     </Typography>
   </Paper>
 };

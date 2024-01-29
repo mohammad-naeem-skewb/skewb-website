@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Grid, Paper, Typography } from "@mui/material";
 
 import post1 from "../assets/Blogs and articles/post1.png";
@@ -7,12 +7,32 @@ import g20 from "../assets/Blogs and articles/G20.png";
 import toi_article from "../assets/Blogs and articles/toi_article.png";
 import Footer from "../pages/Footer";
 import Navbar from "../homeComponents/Navbar";
+import SmallCards from "./SmallCards";
 
 const Blog = () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
+
+  const [blogData, setBlogData] = useState([]);
+  const [sliceLastTwoData, setSliceLastTwoData] = useState([]);
+  const [sliceFirstToSecondLast, setSliceFirstToSecondLast] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      const response = await fetch(
+        "http://15.207.123.147:8000/resources/blog/"
+      );
+      const responsJson = await response.json();
+      setBlogData(responsJson);
+      setSliceLastTwoData(blogData.slice(-2));
+      setSliceFirstToSecondLast(blogData.slice(0, blogData.length - 2));
+      console.log(sliceFirstToSecondLast);
+    }
+    getData();
+  }, [blogData]);
+
   return (
     <>
       <Navbar />
@@ -31,16 +51,64 @@ const Blog = () => {
               },
             }}
           >
-            <div>
-              <a
-                href="https://startupbubble.news/who-are-indias-pioneering-analytics-startups-transforming-the-tech-ecosystem/"
-                target="_blank"
-                alt=" "
-              >
+            {sliceLastTwoData.length > 0 && (
+              <div>
+                <a
+                  href={sliceLastTwoData[0].resource_url}
+                  target="_blank"
+                  alt=" "
+                >
+                  <img
+                    src={sliceLastTwoData[0].image}
+                    alt="Card 1"
+                    style={{ width: "100%", height: "80%" }}
+                  />
+                </a>
+                <Typography
+                  variant="h6"
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.7)",
+                    color: "white",
+                    padding: "8px",
+                    textAlign: "center",
+                    fontWeight: "bold",
+                    fontSize: "medium",
+                  }}
+                >
+                  {sliceLastTwoData[0].tittle}
+                  <br />
+                  {sliceLastTwoData[0].resourse_text}
+                </Typography>
+              </div>
+            )}
+          </Paper>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          {sliceLastTwoData.length > 0 && (
+            <Paper
+              sx={{
+                width: "95%",
+                borderRadius: "20px",
+                transition: "transform 0.3s ease-in-out", // Added transition property
+                position: "relative",
+                overflow: "hidden",
+                transition: "transform 0.3s ease-in-out",
+                height: "45%",
+                marginLeft: "3%",
+                ":hover": {
+                  transform: "scale(1.05)",
+                },
+              }}
+            >
+              <a href={sliceLastTwoData[1].resource_url} target="_blank" alt="">
                 <img
-                  src={post1}
-                  alt="Card 1"
-                  style={{ width: "100%", height: "80%" }}
+                  src={sliceLastTwoData[1].image}
+                  alt="Card 2"
+                  style={{ width: "100%", height: "auto" }}
                 />
               </a>
               <Typography
@@ -58,152 +126,25 @@ const Blog = () => {
                   fontSize: "medium",
                 }}
               >
-                Who are India’s Pioneering Analytics Startups Transforming the
-                Tech Ecosystem?
-                <br />- by Startup Bubble News
+                {sliceLastTwoData[1].tittle}
+                <br></br> {sliceLastTwoData[1].resourse_text}
               </Typography>
-            </div>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Paper
-            sx={{
-              width: "95%",
-              borderRadius: "20px",
-              transition: "transform 0.3s ease-in-out", // Added transition property
-              position: "relative",
-              overflow: "hidden",
-              transition: "transform 0.3s ease-in-out",
-              height: "45%",
-              marginLeft: "3%",
-              ":hover": {
-                transform: "scale(1.05)",
-              },
-            }}
-          >
-            <a
-              href="https://www.financialexpress.com/life/technology-privacy-rules-make-econometrics-powered-marketing-analytics-model-popular-3060771/ "
-              target="_blank"
-            >
-              <img
-                src={article_by_sandeep_sir}
-                alt="Card 2"
-                style={{ width: "100%", height: "auto" }}
-              />
-            </a>
-            <Typography
-              variant="h6"
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                backgroundColor: "rgba(0, 0, 0, 0.7)",
-                color: "white",
-                padding: "8px",
-                textAlign: "center",
-                fontWeight: "bold",
-                fontSize: "medium",
-              }}
-            >
-              Privacy rules make econometrics-powered marketing analytics model
-              popular By Sandeep Pandey
-              <br></br> Financial Express
-            </Typography>
-          </Paper>
+            </Paper>
+          )}
           <Box
             style={{
               display: "flex",
               height: "39%",
             }}
           >
-            <Paper
-              sx={{
-                width: "100%",
-                borderRadius: "20px",
 
-                position: "relative",
-                overflow: "hidden",
-                transition: "transform 0.3s ease-in-out",
-                margin: "3%",
-                ":hover": {
-                  transform: "scale(1.05)",
-                },
-              }}
-            >
-              <a
-                href="https://www.linkedin.com/posts/sandeeppandey100_ready-to-showcase-our-product-and-our-transformative-activity-7081524295180460033-vvZl?utm_source=share&utm_medium=member_android "
-                target="_blank"
-                alt="sandeep_pandey"
-                rel=""
-              >
-                <img
-                  src={g20}
-                  alt="Card 3"
-                  style={{ width: "100%", height: "auto%" }}
-                />
-              </a>
-              <Typography
-                variant="h6"
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  backgroundColor: "rgba(0, 0, 0, 0.7)",
-                  color: "white",
-                  padding: "8px",
-                  textAlign: "center",
-                  fontWeight: "bold",
-                  fontSize: "small",
-                }}
-              >
-                Product Showcasing at Startup20 organised by G20 India
-              </Typography>
-            </Paper>
+           {
+            sliceFirstToSecondLast&&sliceFirstToSecondLast.map((ele)=>{
+              return <SmallCards img={ele.image} title={ele.tittle} url={ele.resource_url}resource_text={ele.resourse_text} />
+            })
+           }
 
-            <Paper
-              sx={{
-                width: "100%",
-                borderRadius: "20px",
-                transition: "transform 0.3s ease-in-out", // Added transition property
-                position: "relative",
-                overflow: "hidden",
-                transition: "transform 0.3s ease-in-out",
-                margin: "3%",
-                ":hover": {
-                  transform: "scale(1.05)",
-                },
-              }}
-            >
-              <a
-                href=" https://timesofindia.indiatimes.com/business/india-business/no-code-platforms-for-marketing-analytics/articleshow/101502580.cms"
-                target="_blank"
-              >
-                <img
-                  src={toi_article}
-                  alt="Card 4"
-                  style={{ width: "100%", height: "100%" }}
-                />
-              </a>
-              <Typography
-                variant="h6"
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  backgroundColor: "rgba(0, 0, 0, 0.7)",
-                  color: "white",
-                  padding: "8px",
-                  textAlign: "center",
-                  fontWeight: "bold",
-                  fontSize: "small",
-                }}
-              >
-                No-code platforms for marketing analytics <br />- Times of India
-              </Typography>
-            </Paper>
+        
           </Box>
         </Grid>
         <Footer />

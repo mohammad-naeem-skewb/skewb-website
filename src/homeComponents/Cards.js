@@ -17,71 +17,58 @@ function Cards({ image, content }) {
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <Box
-      item
-      xs={12}
-      md={4}
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+
+    <Card
+      sx={{
+        borderRadius: "20px",
         width: isMedium || isSmall ? "100%" : "80%",
-        height: "40%",
-        color: "#B4D0B4",
-        marginTop: "5%",
+        backgroundColor: "rgba(255, 255, 255, 0.0)",
+        color: "#99cc00",
       }}
     >
-      <Card
-        sx={{
-          borderRadius: "20px",
-          width: isMedium || isSmall ? "100%" : "80%",
-          backgroundColor: "rgba(255, 255, 255, 0.0)",
-          color: "#99cc00",
-        }}
-      >
-        <CardActionArea sx={{ textAlign: "center" }}>
+      <CardActionArea sx={{ textAlign: "center" }}>
+        <Box
+          sx={{ width: isMedium || isSmall ? "80%" : "30%", margin: "auto" }}
+        >
+          <CardMedia component="img" image={image} />
+        </Box>
+        <CardContent>
           <Box
-            sx={{ width: isMedium || isSmall ? "80%" : "30%", margin: "auto" }}
+            variant="body2"
+            color="#B4D0B4"
+            sx={{
+              fontSize: "17px",
+              fontStyle: "italic",
+              lineHeight: "160%",
+              textAlign: "justify",
+            }}
           >
-            <CardMedia component="img" image={image} />
-          </Box>
-          <CardContent>
-            <Box
-              variant="body2"
-              color="#B4D0B4"
+            <Typography
+              variant="div"
               sx={{
-                fontSize: "17px",
-                fontStyle: "italic",
-                lineHeight: "160%",
-                textAlign: "justify",
+                marginTop: "5%",
+                textAlign: "left",
+                fontSize: "18px",
+                lineHeight: "176%",
+                color: "#616d7e",
               }}
             >
-              <Typography
-                variant="div"
-                sx={{
-                  marginTop: "5%",
-                  textAlign: "left",
-                  fontSize: "18px",
-                  lineHeight: "176%",
-                  color: "#616d7e",
-                }}
-              >
+              {" "}
+              <span style={{ fontSize: "40px", marginRight: "7px" }}>
                 {" "}
-                <span style={{ fontSize: "40px", marginRight: "7px" }}>
-                  {" "}
-                  <img src={Quotes} width="30px" alt=" " />
-                </span>
-                {content}
-                <span style={{ fontSize: "40px", marginLeft: "3px" }}>
-                  {" "}
-                  <img src={closingQuotes} width="30px" alt="" />
-                </span>
-              </Typography>
-            </Box>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-    </Box>
+                <img src={Quotes} width="30px" alt=" " />
+              </span>
+              {content}
+              <span style={{ fontSize: "40px", marginLeft: "3px" }}>
+                {" "}
+                <img src={closingQuotes} width="30px" alt="" />
+              </span>
+            </Typography>
+          </Box>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+
   );
 }
 

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -66,13 +66,49 @@ export default function Services() {
     },
   ];
 
-  const gifArr = [{ heading1: "Ensemble Model", img: img3, heading2: "Millions Of Intractions" },
-  { heading1: "Cloud Infra", img: img2, heading2: "Scalable and Secure Tech" },
-  { heading1: "Productive Power", img: img1, heading2: "90%+ Forecasting accuracy" }
+  // const [servicesData, setServicesData] = useState([]);
 
+  // useEffect(() => {
+  //   async function getData() {
+  //     const response = await fetch(
+  //       "http://15.207.123.147:8000/explore/services/"
+  //     );
+  //     const responsJson = await response.json();
+  //     setServicesData(responsJson);
+  //   }
+  //   getData();
+  // }, []);
+  
+  const gifArr = [
+    {
+      heading1: "Ensemble Model",
+      img: img3,
+      heading2: "Millions Of Intractions",
+    },
+    {
+      heading1: "Cloud Infra",
+      img: img2,
+      heading2: "Scalable and Secure Tech",
+    },
+    {
+      heading1: "Productive Power",
+      img: img1,
+      heading2: "90%+ Forecasting accuracy",
+    },
+  ];
+  const swiperRef = useRef(null);
 
-  ]
+  const handleCardMouseEnter = () => {
+    if (swiperRef.current && swiperRef.current.autoplay) {
+      swiperRef.current.autoplay.stop();
+    }
+  };
 
+  const handleCardMouseLeave = () => {
+    if (swiperRef.current && swiperRef.current.autoplay) {
+      swiperRef.current.autoplay.start();
+    }
+  };
 
   return (
     <Box sx={{ flexGrow: 1, color: "#e6ffe6", padding: "5%" }}>
@@ -153,6 +189,7 @@ export default function Services() {
         </Grid>
 
         <Swiper
+          ref={swiperRef}
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
@@ -169,23 +206,31 @@ export default function Services() {
           speed={800} // Set the transition speed in milliseconds
           direction="horizontal" // Set the direction to 'horizontal'
           loop={true}
+          simulateTouch={true}
+          touchRatio={2}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
         >
           {serviceArr.map((ele, index) => (
             <SwiperSlide key={index}>
-              <CarouselService
-                img={ele.image}
-                content={ele.content}
-                heading={ele.heading}
-              />
+              <Box
+                sx={{ color: "white", position: "relative", cursor: "pointer" }}
+                onMouseEnter={handleCardMouseEnter}
+                onMouseLeave={handleCardMouseLeave}
+              >
+                <CarouselService
+                  img={ele.image}
+                  content={ele.content}
+                  heading={ele.heading}
+                />
+              </Box>
             </SwiperSlide>
           ))}
         </Swiper>
 
-        <Grid item xs={12} md={6} style={{ paddingTop: "9%" }} id="productDemo" >
+        <Grid item xs={12} md={6} style={{ paddingTop: "9%" }} id="productDemo">
           <Typography variant="h4" gutterBottom>
             <span
               style={{
-
                 textAlign: "center",
 
                 letterSpacing: "-.5px",
@@ -263,23 +308,28 @@ export default function Services() {
           </Typography>
         </Box>
       </Box>
-      <Grid container spacing={3} sx={{
-        height: "50%",
-        display: "flex", justifyContent: "center", alignItems: "center",
-        // border: "2px solid red"
-
-      }} >
-
-        {
-          gifArr && gifArr.map((ele) => {
-            return <GrowthDriversCard text1={ele.heading1} text2={ele.heading2} img={ele.img} />
-          })
-        }
+      <Grid
+        container
+        spacing={3}
+        sx={{
+          height: "50%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          // border: "2px solid red"
+        }}
+      >
+        {gifArr &&
+          gifArr.map((ele) => {
+            return (
+              <GrowthDriversCard
+                text1={ele.heading1}
+                text2={ele.heading2}
+                img={ele.img}
+              />
+            );
+          })}
       </Grid>
-
-
-
-
 
       <Footer />
     </Box>

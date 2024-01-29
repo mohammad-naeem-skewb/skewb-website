@@ -72,6 +72,7 @@ export default function AutoCarousel() {
             <div
               onMouseEnter={handleCardMouseEnter}
               onMouseLeave={handleCardMouseLeave}
+              
             >
               <Carousel
                 img={ele.image}
