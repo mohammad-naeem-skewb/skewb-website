@@ -27,7 +27,6 @@ function CarouselService({ img, content, heading }) {
           <Typography
             sx={{
               marginTop: "5%",
-              // textAlign: "left",
               fontSize: "20px",
               lineHeight: "176%",
               color: "#616d7e",
@@ -41,9 +40,7 @@ function CarouselService({ img, content, heading }) {
             size="medium"
             sx={{
               color: "#d6ff41",
-              borderRadius: "18px",
-              // padding: "16px 35px",
-              // fontSize: "18px",
+              borderRadius: "18px",              
               width:isMedium||isMedium?"30%":"20%",
               lineHeight: "140%",
               border:"1px solid grey",

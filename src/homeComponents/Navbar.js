@@ -57,7 +57,7 @@ function Navbar() {
       <Toolbar>
         <Link to="/">
           {" "}
-          <img src={skewbLogo} width={"130px"} alt="logo" />
+          <img src={skewbLogo} width={"90px"} alt="logo" />
         </Link>
 
         {isMatch ? (

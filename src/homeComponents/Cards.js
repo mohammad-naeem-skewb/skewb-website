@@ -1,12 +1,9 @@
 import {
   Box,
-
   Card,
   CardActionArea,
-
   CardContent,
   CardMedia,
-
   Typography,
   useMediaQuery,
   useTheme,
@@ -28,12 +25,10 @@ function Cards({ image, content }) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-
         width: isMedium || isSmall ? "100%" : "80%",
         height: "40%",
         color: "#B4D0B4",
-        
-        marginTop:"5%"
+        marginTop: "5%",
       }}
     >
       <Card
@@ -45,7 +40,9 @@ function Cards({ image, content }) {
         }}
       >
         <CardActionArea sx={{ textAlign: "center" }}>
-          <Box sx={{width: isMedium || isSmall ? "80%" : "30%", margin: "auto" }}>
+          <Box
+            sx={{ width: isMedium || isSmall ? "80%" : "30%", margin: "auto" }}
+          >
             <CardMedia component="img" image={image} />
           </Box>
           <CardContent>
@@ -55,15 +52,10 @@ function Cards({ image, content }) {
               sx={{
                 fontSize: "17px",
                 fontStyle: "italic",
-                // padding: "3%",
                 lineHeight: "160%",
                 textAlign: "justify",
               }}
             >
-              {/* <CardMedia style={{ width: "20px" }}
-                                component="img"
-                                image={Quotes}
-                            /> */}
               <Typography
                 variant="div"
                 sx={{
@@ -72,7 +64,6 @@ function Cards({ image, content }) {
                   fontSize: "18px",
                   lineHeight: "176%",
                   color: "#616d7e",
-
                 }}
               >
                 {" "}
@@ -86,10 +77,6 @@ function Cards({ image, content }) {
                   <img src={closingQuotes} width="30px" alt="" />
                 </span>
               </Typography>
-              {/* <CardMedia style={{ width: "20px" }}
-                                component="img"
-                                image={closingQuotes}
-                            /> */}
             </Box>
           </CardContent>
         </CardActionArea>

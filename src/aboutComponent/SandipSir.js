@@ -1,96 +1,29 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 import React from "react";
 import { Link } from "react-router-dom";
-
-// function SandipSir({ img, name, position, content, ref }) {
-//   return (
-//     <Box sx={{border:"2px solid red", height:"10%"}}>
-//     <Card
-//       sx={{
-//         borderRadius: "20px",
-//         backgroundColor: "rgba(255, 255, 255, 0.0)",
-//         color: "#d6ff41",
-//         width:"20%",
-//         display:"flex",
-
-//         height:"15%",
-
-//       }}
-//     >
-//       <CardActionArea>
-//         <CardMedia sx={{border:"2px solid red", padding:"5%"}} component="img" image={img} alt={name} width="0%" />
-//         <CardContent>
-//           <Typography gutterBottom variant="h6" component="div">
-//             {name}
-//           </Typography>
-//           <Typography gutterBottom variant="h10" component="div">
-//             {position}
-//           </Typography>
-//           <Typography
-//             variant="body2"
-//             color="#B4D0B4"
-//             sx={{
-//               color: "#8c99ab",
-//               fontFamily: "Inter, sans-serif",
-//               fontSize: "18px",
-//               lineHeight: "180%",
-//               border:"2px solid red"
-//             }}
-//           >
-//             {content}
-//             <Typography>
-//               <Button size="small" color="primary" style={{ color: "#d6ff41" }}>
-//                 {/* < a  href=" " > Connect </a> */}
-//                 <Link
-//                   to="/serviceExplore"
-//                   style={{ textDecoration: "none", color: "#d6ff41" }}
-//                 >
-//                   {" "}
-//                   Connect{" "}
-//                 </Link>
-//               </Button>
-//             </Typography>
-//           </Typography>
-//         </CardContent>
-//       </CardActionArea>
-//     </Card>
-//     </Box>
-//   );
-// }
-
-// export default SandipSir;
-
 function SandipSir({ name, img, content, position }) {
   return (
     <Box
       sx={{
+        // border:"2px solid red",
         borderBottom: "1px solid #d6ff41",
         borderRadius: "2px",
         display: "flex",
         justifyContent: "center",
-        width: "60%",
+        width: "70%",
         marginLeft: "20%",
         height: "100%",
         backgroundColor: "rgba(255, 255, 255, 0.0)",
+        padding: "1%",
       }}
     >
       <Box
         sx={{
-          //   border: "2px solid red",
+          // border: "2px solid blue",
           display: "flex",
           justifyContent: "center",
-          padding: "0% 5% 5% 5%",
+          // padding: "0% 5% 5% 5%",
         }}
       >
         <Box
@@ -99,7 +32,8 @@ function SandipSir({ name, img, content, position }) {
             // border: "2px solid red",
             display: "flex",
             justifyContent: "end",
-            padding: "2%",
+            // padding: "2%",
+            // padding:"1%"
           }}
         >
           <Box>
@@ -133,17 +67,29 @@ function SandipSir({ name, img, content, position }) {
         </Box>
         <Box
           sx={{
-            padding: "2%",
-            color: "#8c99ab",
-            fontFamily: "Inter, sans-serif",
-            fontSize: "18px",
-            lineHeight: "180%",
+            // padding: "2%",
+            // color: "#8c99ab",
+            // fontFamily: "Inter, sans-serif",
+            // fontSize: "18px",
+            // lineHeight: "180%",
+            // border: "2px solid red",
+            // paddingRight:"15%"
           }}
         >
-          Sandeep is a global leader in the field of Analytical consulting and
-          digital transformation. He has a unique acumen for understanding data,
-          its versatility and application beyond businesses along with a strong
-          analytics consulting experience.
+          <Typography
+            sx={{
+              color: "#8c99ab",
+              fontFamily: "Inter, sans-serif",
+              fontSize: "18px",
+              lineHeight: "180%",
+              padding: "1% 15% 0 4%",
+            }}
+          >
+            Sandeep is a global leader in the field of Analytical consulting and
+            digital transformation. He has a unique acumen for understanding
+            data, its versatility and application beyond businesses along with a
+            strong analytics consulting experience.
+          </Typography>
           <Button
             size="small"
             color="primary"

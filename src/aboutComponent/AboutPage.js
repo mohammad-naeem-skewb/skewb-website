@@ -52,9 +52,9 @@ const AboutPage = React.memo(() => {
       img: Kavita,
       name: " Kavita Nair",
       position: " Advisor",
-      url: "https://www.linkedin.com/in/shubham-chhajed-04b49251/ ",
+      url: "https://www.linkedin.com/in/kavita-nair-a2b99bb/?originalSubdomain=in",
       content:
-        " Kavita Nair, the chief digital transformation officer and marketing head has moved on from the company. After spending nearly 20 years working at Vi (formerly Vodafone-India), Kavita Nair has moved on from the company.",
+        "A dynamic and admired leader, Kavita has proven success in managing a wide range of leadership roles at what is now Vodafone Idea. In her 22 years across the various avatars of the company, she held leadership roles in diverse functions across Consumer and Enterprise domains, Retail, Digital, Data and Customer Experience & Operations.",
     },
   ];
 
@@ -147,9 +147,6 @@ const AboutPage = React.memo(() => {
                 boxShadow: "1px 1px 1px #d6ff41",
                 color: "#d6ff41",
                 marginTop: "10%",
-
-
-
               }}
             >
               <CardActionArea>
@@ -159,12 +156,15 @@ const AboutPage = React.memo(() => {
                     alignItems: "center",
                     // border: "2px red solid",
                     transition: "all .2s",
-                    ":hover": {
+                    // ":hover": {
 
-                      boxShadow: "2px 4px 0px #black",
-                      transform: "translateY(-10px)",
-                      transition: "transform 0.3s ease-in-out",
-                    },
+                    //   boxShadow: "2px 4px 0px #black",
+                    //   transform: "translateY(-10px)",
+                    //   transition: "transform 0.3s ease-in-out",
+                    // },
+                    // transition: "transform 0.3s",
+                    ":hover": {
+                      transform: "scale(1.01)",                                         },
                   }}
                 >
                   <div>
@@ -187,10 +187,7 @@ const AboutPage = React.memo(() => {
                         style={{ marginRight: "8%" }}
                       />{" "}
                       Our Mission
-                    </Typography>
-                    {/* font-family: Inter, sans-serif;
-    font-size: 18px;
-    line-height: 180%; */}
+                    </Typography>               
                     <Typography variant="body2" color="#B4D0B4">
                       <Typography
                         sx={{
@@ -241,10 +238,14 @@ const AboutPage = React.memo(() => {
                     // border: "2px red solid",
                     transition: "all .2s",
                     ":hover": {
-                      boxShadow: "none",
+                      // boxShadow: "none",
                       boxShadow: "2px 4px 0px #black",
-                      transform: "translateY(-10px)",
-                      transition: "transform 0.3s ease-in-out",
+                      // transform: "translateY(-10px)",
+                      // transition: "transform 0.3s ease-in-out",
+                      ":hover": {
+                        transform: "scale(1.01)",
+                        
+                      },
                     },
                   }}
                 >

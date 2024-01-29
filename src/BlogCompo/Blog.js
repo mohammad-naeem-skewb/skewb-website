@@ -34,7 +34,8 @@ const Blog = () => {
             <div>
               <a
                 href="https://startupbubble.news/who-are-indias-pioneering-analytics-startups-transforming-the-tech-ecosystem/"
-                target="_blank" alt=" "
+                target="_blank"
+                alt=" "
               >
                 <img
                   src={post1}
@@ -132,7 +133,9 @@ const Blog = () => {
             >
               <a
                 href="https://www.linkedin.com/posts/sandeeppandey100_ready-to-showcase-our-product-and-our-transformative-activity-7081524295180460033-vvZl?utm_source=share&utm_medium=member_android "
-                target="_blank" alt="sandeep_pandey" rel=""
+                target="_blank"
+                alt="sandeep_pandey"
+                rel=""
               >
                 <img
                   src={g20}
@@ -206,7 +209,6 @@ const Blog = () => {
         <Footer />
       </Grid>
     </>
-
   );
 };
 

@@ -21,8 +21,7 @@ const Contact = () => {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          width: "100%",
-          // border: "2px solid red",
+          width: "100%",       
         }}
       >
         <Uptext />

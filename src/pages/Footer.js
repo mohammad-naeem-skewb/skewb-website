@@ -149,6 +149,7 @@ function Footer() {
                   fontSize: "16px",
                   color: "#8c99ab",
                   marginBottom: "12px",
+                  marginTop:"18px"
                 }}
               >
                 <Link
@@ -263,6 +264,7 @@ function Footer() {
                 sx={{
                   textAlign: "left",
                   marginBottom: "12px",
+                   marginTop:"18px"
                 }}
               >
                 <SocialIcon
@@ -313,7 +315,7 @@ function Footer() {
           </Grid>
 
           {/* Contact Us  Grid */}
-          <Grid item xs={12} md={4} sx={{ marginTop:isMatch||isMatchSmall?"0":"45px" }}>
+          <Grid item xs={12} md={4} sx={{ marginTop:isMatch||isMatchSmall?"0":"45px",}}>
             <Paper
               style={{
                 backgroundColor: "black",
@@ -327,7 +329,7 @@ function Footer() {
                   fontSize: "16px",
                   color: "#8c99ab",
                   textAlign: "left",
-                  marginBottom: "20px",
+                  marginBottom: "18px",
                 }}
               >
                 <strong>Contact Us </strong>
@@ -338,6 +340,7 @@ function Footer() {
                   fontSize: "16px",
                   textAlign: "left",
                   marginBottom: "20px",
+                  // border:"2px solid yellow"
                 }}
               >
                 <SocialIcon
