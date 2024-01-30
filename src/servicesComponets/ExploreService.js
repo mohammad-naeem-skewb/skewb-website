@@ -16,15 +16,13 @@ function ExploreService() {
       );
       const responsJson = await response.json();
       setServicesData(responsJson);
-      const filtredData = serviceData.filter((ele) => {
-        return ele.title === title;
-      });
-      setFilter(filtredData);
     }
     getData();
-  }, [serviceData]);
+  }, []);
 
-  // console.log(serviceData)
+  const b = serviceData[0]?.subtitle1;
+  const d = JSON.parse(b);
+  console.log(d);
 
   return (
     <>
