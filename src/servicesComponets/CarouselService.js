@@ -8,7 +8,13 @@ import {
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function CarouselService({ img, content, heading }) {
+function CarouselService({
+  img,
+  content,
+  heading,
+  onMouseEnter,
+  onMouseLeave,
+}) {
   const theme = useTheme();
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
@@ -34,7 +40,14 @@ function CarouselService({ img, content, heading }) {
           width: "100%",
           padding: "3%",
           textAlign: isMedium || isSmall ? "center" : "left",
+          ":hover": {
+            cursor: "pointer",
+            background:
+              "radial-gradient(66.07% 100% at 50% -45.72%, rgba(220, 255, 91, 0.7) 0%, rgba(28, 36, 39, 0) 100%)",
+          },
         }}
+        onMouseLeave={onMouseLeave}
+        onMouseEnter={onMouseEnter}
       >
         <Typography variant="h4">{heading}</Typography>
         <Typography

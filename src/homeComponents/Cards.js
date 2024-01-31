@@ -12,12 +12,11 @@ import React from "react";
 import Quotes from "../assets/Quotes.svg";
 import closingQuotes from "../assets/closing_quotes.svg";
 
-function Cards({ image, content }) {
+function Cards({ image, content, onMouseEnter, onMouseLeave }) {
   const theme = useTheme();
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-
     <Card
       sx={{
         borderRadius: "20px",
@@ -25,6 +24,8 @@ function Cards({ image, content }) {
         backgroundColor: "rgba(255, 255, 255, 0.0)",
         color: "#99cc00",
       }}
+      onMouseLeave={onMouseLeave}
+      onMouseEnter={onMouseEnter}
     >
       <CardActionArea sx={{ textAlign: "center" }}>
         <Box
@@ -68,7 +69,6 @@ function Cards({ image, content }) {
         </CardContent>
       </CardActionArea>
     </Card>
-
   );
 }
 

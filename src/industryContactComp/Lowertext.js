@@ -12,7 +12,6 @@ export default function Lowertext() {
         color: "white",
         textAlign: "center",
         width: isMatch ? "100%" : "50%",
-        // marginTop:"3%"
         marginTop: "0%",
       }}
     >

@@ -15,9 +15,10 @@ const Blog = () => {
     behavior: "smooth",
   });
 
-  const [blogData, setBlogData] = useState([]);
+  // const [blogData, setBlogData] = useState([]);
   const [sliceLastTwoData, setSliceLastTwoData] = useState([]);
   const [sliceFirstToSecondLast, setSliceFirstToSecondLast] = useState([]);
+  const [sliceFirstFourToLast, setSliceFirstToLast] = useState([]);
 
   useEffect(() => {
     async function getData() {
@@ -25,13 +26,19 @@ const Blog = () => {
         "http://15.207.123.147:8000/resources/blog/"
       );
       const responsJson = await response.json();
-      setBlogData(responsJson);
-      setSliceLastTwoData(blogData.slice(-2));
-      setSliceFirstToSecondLast(blogData.slice(0, blogData.length - 2));
-      console.log(sliceFirstToSecondLast);
+      // for top two news
+      setSliceLastTwoData(responsJson.slice(0, 3));
+
+      // for top three and four news
+      setSliceFirstToSecondLast(responsJson.slice(2, 4));
+
+      //for news from top 4 to last....
+      // sliceFirstFourToLast(responsJson.slice(0,responsJson.length));
+      setSliceFirstToLast(responsJson.slice(4));
+      console.log(sliceFirstFourToLast);
     }
     getData();
-  }, [blogData]);
+  }, []);
 
   return (
     <>
@@ -56,7 +63,8 @@ const Blog = () => {
                 <a
                   href={sliceLastTwoData[0].resource_url}
                   target="_blank"
-                  alt=" "
+                  alt="image_blog"
+                  rel="noopener noreferrer"
                 >
                   <img
                     src={sliceLastTwoData[0].image}
@@ -96,7 +104,6 @@ const Blog = () => {
                 transition: "transform 0.3s ease-in-out", // Added transition property
                 position: "relative",
                 overflow: "hidden",
-                transition: "transform 0.3s ease-in-out",
                 height: "45%",
                 marginLeft: "3%",
                 ":hover": {
@@ -104,7 +111,12 @@ const Blog = () => {
                 },
               }}
             >
-              <a href={sliceLastTwoData[1].resource_url} target="_blank" alt="">
+              <a
+                href={sliceLastTwoData[1].resource_url}
+                target="_blank"
+                alt="image_blog"
+                rel="noopener noreferrer"
+              >
                 <img
                   src={sliceLastTwoData[1].image}
                   alt="Card 2"
@@ -137,16 +149,37 @@ const Blog = () => {
               height: "39%",
             }}
           >
-
-           {
-            sliceFirstToSecondLast&&sliceFirstToSecondLast.map((ele)=>{
-              return <SmallCards img={ele.image} title={ele.tittle} url={ele.resource_url}resource_text={ele.resourse_text} />
-            })
-           }
-
-        
+            {sliceFirstToSecondLast &&
+              sliceFirstToSecondLast.map((ele) => {
+                return (
+                  <SmallCards
+                    img={ele.image}
+                    title={ele.tittle}
+                    url={ele.resource_url}
+                    resource_text={ele.resourse_text}
+                  />
+                );
+              })}
           </Box>
         </Grid>
+        <Box
+          style={{
+            display: "flex",
+            // height: "39%",
+          }}
+        >
+          {sliceFirstFourToLast &&
+            sliceFirstFourToLast.map((ele) => {
+              return (
+                <SmallCards
+                  img={ele.image}
+                  title={ele.tittle}
+                  url={ele.resource_url}
+                  resource_text={ele.resourse_text}
+                />
+              );
+            })}
+        </Box>
         <Footer />
       </Grid>
     </>

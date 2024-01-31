@@ -2,7 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 
 import React from "react";
 import { Link } from "react-router-dom";
-function SandipSir({ name, img, content, position }) {
+function SandipSir({ name, img, content, position,url }) {
   return (
     <Box
       sx={{
@@ -41,8 +41,7 @@ function SandipSir({ name, img, content, position }) {
             <Box>
               {" "}
               <img
-                src="https://assets-global.website-files.com/61eaca7810877f7aff9aaa4f/632948254201ff0a3232694f_Sandeep%20Pandey.png"
-                width={"100%"}
+                src={img}  width={"100%"}
                 height={"100%"}
                 alt=""
               />{" "}
@@ -53,7 +52,7 @@ function SandipSir({ name, img, content, position }) {
               component="div"
               sx={{ textAlign: "center", color: "#white" }}
             >
-              Sandeep Pandey
+              {name}
             </Typography>
             <Typography
               gutterBottom
@@ -61,7 +60,7 @@ function SandipSir({ name, img, content, position }) {
               component="div"
               sx={{ textAlign: "center", color: "#d6ff41" }}
             >
-              CO-FOUNDER & CEO
+              {position}
             </Typography>
           </Box>
         </Box>
@@ -85,10 +84,7 @@ function SandipSir({ name, img, content, position }) {
               padding: "1% 15% 0 4%",
             }}
           >
-            Sandeep is a global leader in the field of Analytical consulting and
-            digital transformation. He has a unique acumen for understanding
-            data, its versatility and application beyond businesses along with a
-            strong analytics consulting experience.
+           {content}
           </Typography>
           <Button
             size="small"
@@ -100,7 +96,7 @@ function SandipSir({ name, img, content, position }) {
             }}
           >
             <Link
-              to={"https://in.linkedin.com/in/sandeeppandey100"}
+              to={url}
               target="blank"
               style={{
                 textDecoration: "none",

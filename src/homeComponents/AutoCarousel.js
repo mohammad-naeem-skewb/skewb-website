@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -9,25 +9,46 @@ import "./Testimonials.css";
 import Carousel from "./Carousel";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useMediaQuery, useTheme } from "@mui/material";
+import axios from "axios"
 
 export default function AutoCarousel() {
   const theme = useTheme();
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
-  const contentArray = [
-    {
-      image: img1,
-      content:
-        "Go beyond basic insights with our AI-powered analytics tool that helps you build a sophisticated database & leverage it with effective planning & stunning accuracy",
-      heading: "Transformational leap in marketing analytics",
-    },
-    {
-      image: img2,
-      content:
-        "We take digital marketing analytics one step further with unparalleled prescriptive deep-dive. Our innovative end-to-end analytics solution gives you relevant data & helps in strategy formulation & planning at the lowest cuts",
-      heading: "Reinvent digital analytics, with Skewb",
-    },
-  ];
+  const [contentArr, setContentArr] = useState([]);
+  const [apiCalled, setApiCalled] = useState(false);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get("http://15.207.123.147:8000/api/home_card/");
+        setContentArr(response.data);
+        setApiCalled(true);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    if (!apiCalled) {
+      getData();
+    }
+  }, []);
+  console.log(contentArr);
+
+  // const contentArray = [
+  //   {
+  //     image: img1,
+  //     content:
+  //       "Go beyond basic insights with our AI-powered analytics tool that helps you build a sophisticated database & leverage it with effective planning & stunning accuracy",
+  //     heading: "Transformational leap in marketing analytics",
+  //   },
+  //   {
+  //     image: img2,
+  //     content:
+  //       "We take digital marketing analytics one step further with unparalleled prescriptive deep-dive. Our innovative end-to-end analytics solution gives you relevant data & helps in strategy formulation & planning at the lowest cuts",
+  //     heading: "Reinvent digital analytics, with Skewb",
+  //   },
+  // ];
 
   const swiperRef = useRef(null);
 
@@ -67,19 +88,15 @@ export default function AutoCarousel() {
         touchRatio={2}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        {contentArray.map((ele, index) => (
+        {contentArr.map((ele, index) => (
           <SwiperSlide key={index}>
-            <div
+            <Carousel
+              img={ele.image}
+              content={ele.content}
+              heading={ele.title}
               onMouseEnter={handleCardMouseEnter}
               onMouseLeave={handleCardMouseLeave}
-              
-            >
-              <Carousel
-                img={ele.image}
-                content={ele.content}
-                heading={ele.heading}
-              />
-            </div>
+            />
           </SwiperSlide>
         ))}
       </Swiper>

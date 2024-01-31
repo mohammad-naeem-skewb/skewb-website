@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,7 +13,7 @@ import cloudNine from "../assets/cloudNine.svg";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { Box, Card, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Cards from "./Cards";
 export default function Testimonials() {
   const theme = useTheme();
@@ -37,6 +37,16 @@ export default function Testimonials() {
     },
   ];
 
+  const [client, setClient] = useState([]);
+  useEffect(() => {
+    async function getData() {
+      const response = await fetch("http://15.207.123.147:8000/api/client/");
+      const responseJson = await response.json();
+      setClient(responseJson);
+    }
+    getData();
+  }, []);
+  console.log(client);
   const swiperRef = useRef(null);
 
   const handleCardMouseEnter = () => {
@@ -90,14 +100,14 @@ export default function Testimonials() {
         touchRatio={2}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        {testimonialArr.length > 0 &&
-          testimonialArr.map((item, index) => (
+        {client.map((item, index) => {
+          return (
             <SwiperSlide key={index}>
               <Box
                 item
                 xs={12}
                 md={4}
-                style={{
+                sx={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -105,14 +115,19 @@ export default function Testimonials() {
                   height: "40%",
                   color: "#B4D0B4",
                   marginTop: "5%",
+                  // border: "1px solid yellow",
                 }}
-                onMouseEnter={handleCardMouseEnter}
-                onMouseLeave={handleCardMouseLeave}
               >
-                <Cards image={item.image} content={item.content} />
+                <Cards
+                  image={item.client_logo}
+                  content={item.client_information}
+                  onMouseEnter={handleCardMouseEnter}
+                  onMouseLeave={handleCardMouseLeave}
+                />
               </Box>
             </SwiperSlide>
-          ))}
+          );
+        })}
       </Swiper>
     </Box>
   );

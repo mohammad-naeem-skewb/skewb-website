@@ -1,7 +1,7 @@
 import { Typography, Grid, Box, useMediaQuery, useTheme } from "@mui/material";
 import React, { useState } from "react";
 
-function Carousel({ img, content, heading }) {
+function Carousel({ img, content, heading, onMouseEnter, onMouseLeave }) {
   const theme = useTheme();
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
@@ -14,16 +14,28 @@ function Carousel({ img, content, heading }) {
           alignItems: "center",
           marginTop: "0px",
           flexDirection: isMedium || isSmall ? "column" : "row",
+
           ":hover": {
             cursor: "pointer",
-            boxShadow: "2px 4px 0px #black",
           },
         }}
       >
         <Box sx={{ width: "90%", padding: "5%", marginTop: "1%" }}>
           <img alt="" src={img} width={"100%"} height={"100%"} />
         </Box>
-        <Box sx={{ width: "100%", padding: "3%" }}>
+        <Box
+          sx={{
+            width: "100%",
+            padding: "3%",
+            ":hover": {
+              cursor: "pointer",
+              background:
+                "radial-gradient(66.07% 100% at 50% -45.72%, rgba(220, 255, 91, 0.7) 0%, rgba(28, 36, 39, 0) 100%)",
+            },
+          }}
+          onMouseLeave={onMouseLeave}
+          onMouseEnter={onMouseEnter}
+        >
           <Typography
             variant="h4"
             sx={{

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -26,36 +26,28 @@ const AboutPage = React.memo(() => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   const isMatchSmall = useMediaQuery(theme.breakpoints.down("sm"));
-
   const customEase = [0.6, -0.05, 0.01, 0.99];
 
-  const FoundersArr = [
-    {
-      img: "https://assets-global.website-files.com/61eaca7810877f7aff9aaa4f/6329482596255e67dc05eced_Snigdha%20Gupta.png",
-      name: "Snigdha Gupta",
-      position: "CO-FOUNDER & CPO ",
-      url: "https://www.linkedin.com/in/snigdha-gupta-88a31a45/ ",
-      content:
-        "An analytics expert, Snigdha has worked across industries and business endeavors with a proven track record in helping clients solve their most complicated challenges. ",
-    },
-    {
-      img: "https://assets-global.website-files.com/61eaca7810877f7aff9aaa4f/63294824becdfe367e995de1_Shubham%20Chajjed.png ",
-      name: "Shubham Chhajed ",
-      position: " CO-FOUNDER & CTO",
-      url: "https://www.linkedin.com/in/shubham-chhajed-04b49251/ ",
-      content:
-        "As an expert in embracing agile transformations from concept to execution, Shubham has aided in implementing efficient and cost-effective technologies that optimize value from day one.",
-    },
-    {
-      img: Kavita,
-      name: " Kavita Nair",
-      position: " ADVISOR",
-      url: "https://www.linkedin.com/in/kavita-nair-a2b99bb/?originalSubdomain=in",
-      content:
-        "A dynamic and admired leader, Kavita has proven success in managing a wide range of leadership roles at what is now Vodafone Idea. In her 22 years across the various avatars of the company, she held leadership roles in diverse functions across Consumer and Enterprise domains, Retail, Digital, Data and Customer Experience & Operations.",
-    },
-  ];
+  const [founders, setFounders] = useState([]);
+  const [sandeepSir, setSandeepSir] = useState([]);
+  const [award, setAward] = useState([]);
+  useEffect(() => {
+    async function getFounderData() {
+      const response = await fetch("http://15.207.123.147:8000/api/about/");
+      const responseJson = await response.json();
+      setFounders(responseJson.slice(1));
+      setSandeepSir(responseJson[0]);
+    }
+    getFounderData();
 
+    async function getAwardData() {
+      const response = await fetch("http://15.207.123.147:8000/api/award/");
+      const responseJson = await response.json();
+      setAward(responseJson);
+    }
+    getAwardData();
+  }, []);
+  console.log(award)
   return (
     <Box sx={{ flexGrow: 1, color: "#e6ffe6" }}>
       <Grid container spacing={3} sx={{ padding: "2%" }}>
@@ -364,19 +356,25 @@ const AboutPage = React.memo(() => {
           >
             {" "}
             <FounderCard
-              img="https://assets-global.website-files.com/61eaca7810877f7aff9aaa4f/632948254201ff0a3232694f_Sandeep%20Pandey.png"
-              name="Sandeep Pandey"
-              position="CO-FOUNDER & CEO"
-              content="Sandeep is a global leader in the field of Analytical consulting and digital transformation. He has a unique acumen for understanding data, its versatility and application beyond businesses along with a strong analytics consulting experience."
-              url="https://in.linkedin.com/in/sandeeppandey100"
+              img={sandeepSir.person_image}
+              name={sandeepSir.name}
+              position={sandeepSir.designation}
+              content={sandeepSir.about_info}
+              url={sandeepSir.website_link}
             />
           </Grid>
         ) : (
-          <SandipSir />
+          <SandipSir
+            img={sandeepSir.person_image}
+            name={sandeepSir.name}
+            position={sandeepSir.designation}
+            content={sandeepSir.about_info}
+            url={sandeepSir.website_link}
+          />
         )}
 
-        {FoundersArr &&
-          FoundersArr.map((ele) => {
+        {founders &&
+          founders.map((ele) => {
             return (
               <Grid
                 item
@@ -394,11 +392,11 @@ const AboutPage = React.memo(() => {
                 }}
               >
                 <FounderCard
-                  img={ele.img}
-                  content={ele.content}
-                  position={ele.position}
+                  img={ele.person_image}
+                  content={ele.about_info}
+                  position={ele.designation}
                   name={ele.name}
-                  url={ele.url}
+                  url={ele.website_link}
                 />
               </Grid>
             );

@@ -12,7 +12,6 @@ import img1 from "../assets/serviceAssets/tar.gif";
 import img2 from "../assets/serviceAssets/cloud.gif";
 import img3 from "../assets/serviceAssets/artificial.gif";
 import Footer from "../pages/Footer";
-
 import ma from "../assets/serviceAssets/m_a.png";
 import da from "../assets/serviceAssets/d_a_.png";
 import wa from "../assets/serviceAssets/w_a.png";
@@ -26,9 +25,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
 import { Button, CardActions } from "@mui/material";
-
 export default function Services() {
   const theme = useTheme();
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
@@ -65,20 +62,6 @@ export default function Services() {
         "At Skewb, we believe it’s crucial to have an advanced level of data governance that identifies data elements and establish quality standards that ensure data collection, and sanity required for analytics and measurement.",
     },
   ];
-
-  // const [servicesData, setServicesData] = useState([]);
-
-  // useEffect(() => {
-  //   async function getData() {
-  //     const response = await fetch(
-  //       "http://15.207.123.147:8000/explore/services/"
-  //     );
-  //     const responsJson = await response.json();
-  //     setServicesData(responsJson);
-  //   }
-  //   getData();
-  // }, []);
-  
   const gifArr = [
     {
       heading1: "Ensemble Model",
@@ -214,13 +197,14 @@ export default function Services() {
             <SwiperSlide key={index}>
               <Box
                 sx={{ color: "white", position: "relative", cursor: "pointer" }}
-                onMouseEnter={handleCardMouseEnter}
-                onMouseLeave={handleCardMouseLeave}
+               
               >
                 <CarouselService
                   img={ele.image}
                   content={ele.content}
                   heading={ele.heading}
+                  onMouseEnter={handleCardMouseEnter}
+                  onMouseLeave={handleCardMouseLeave}
                 />
               </Box>
             </SwiperSlide>
