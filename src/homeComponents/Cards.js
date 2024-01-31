@@ -17,6 +17,7 @@ function Cards({ image, content, onMouseEnter, onMouseLeave }) {
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
   return (
+    
     <Card
       sx={{
         borderRadius: "20px",
@@ -29,7 +30,7 @@ function Cards({ image, content, onMouseEnter, onMouseLeave }) {
     >
       <CardActionArea sx={{ textAlign: "center" }}>
         <Box
-          sx={{ width: isMedium || isSmall ? "80%" : "30%", margin: "auto" }}
+          sx={{ width: isMedium || isSmall ? "60%" : "30%", margin: "auto" }}
         >
           <CardMedia component="img" image={image} />
         </Box>

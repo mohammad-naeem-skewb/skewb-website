@@ -14,12 +14,13 @@ function CarouselService({
   heading,
   onMouseEnter,
   onMouseLeave,
+  id,
 }) {
   const theme = useTheme();
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
-  const title = heading.replace(/ /g, "_");
-  console.log(title);
+  // const title = heading.replace(/ /g, "_");
+  // console.log(title);
   return (
     <Box
       sx={{
@@ -74,8 +75,7 @@ function CarouselService({
           }}
         >
           <Link
-            //  to={`/industryExplore/${title}`}
-            to={`/serviceExplore/${title}`}
+            to={`/serviceExplore/${id}`}
             target="_blank"
             style={{ textDecoration: "none", color: "#d6ff41" }}
           >
@@ -84,8 +84,6 @@ function CarouselService({
           </Link>
         </Button>
       </Box>
-
-      <Box></Box>
     </Box>
   );
 }

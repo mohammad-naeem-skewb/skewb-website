@@ -1,52 +1,38 @@
 import React, { useEffect, useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import img1 from "../assets/img1.png";
+import img2 from "../assets/img2.png";
 import "./Testimonials.css";
-import wavemaker from "../assets/wavemaker.png";
-import delhivery from "../assets/Delhivery_logo.png";
-import cloudNine from "../assets/cloudNine.svg";
-
-// import required modules
+import Carousel from "./Carousel";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Cards from "./Cards";
-export default function Testimonials() {
+
+export default function AutoCarousel({ client }) {
   const theme = useTheme();
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
-  const testimonialArr = [
-    {
-      image: delhivery,
-      content:
-        "We have seen remarkable benefits using Skewb solution, not only in the time-saving aspects of quick turnaround analytics, but also in the level of insight one can get from the media and marketing data. Skewb prescriptive analytics suite and simulation tool, has helped us take informed decisions for our growth strategy. Measuring the impact of strategies executed has been to the point. A big shoutout to Skewb for theirservice- Delhivery",
-    },
-    {
-      image: wavemaker,
-      content:
-        "I would strongly recommend working with Skewb Analytics. The team is wonderful to work with and they care about making intelligent, informed decisions, based on robust mathematical modeling solutions.”- Amir Suherlan Managing Director, Wavemaker Indonesia",
-    },
-    {
-      image: cloudNine,
-      content:
-        "Our interaction with Skewb analytics was a fruitful one. Skewb's agile measurement platform provided precise and accurate insights and predictions on our digital ROAS. Team's understanding about the advanced marketing analytics space and ability to replicate the same for the healthcare domain is commendable and helped us achieve our goal. We would highly rely on Skewb to help us solve complex marketing problems for Cloudnine.-Cloudnine",
-    },
-  ];
 
-  const [client, setClient] = useState([]);
-  useEffect(() => {
-    async function getData() {
-      const response = await fetch("http://15.207.123.147:8000/api/client/");
-      const responseJson = await response.json();
-      setClient(responseJson);
-    }
-    getData();
-  }, []);
-  console.log(client);
+  // console.log(contentArr);
+
+  // const contentArray = [
+  //   {
+  //     image: img1,
+  //     content:
+  //       "Go beyond basic insights with our AI-powered analytics tool that helps you build a sophisticated database & leverage it with effective planning & stunning accuracy",
+  //     heading: "Transformational leap in marketing analytics",
+  //   },
+  //   {
+  //     image: img2,
+  //     content:
+  //       "We take digital marketing analytics one step further with unparalleled prescriptive deep-dive. Our innovative end-to-end analytics solution gives you relevant data & helps in strategy formulation & planning at the lowest cuts",
+  //     heading: "Reinvent digital analytics, with Skewb",
+  //   },
+  // ];
+
   const swiperRef = useRef(null);
 
   const handleCardMouseEnter = () => {
@@ -64,7 +50,7 @@ export default function Testimonials() {
   return (
     <Box sx={{ padding: "3%" }}>
       <Typography
-        variant="h4"
+        variant={isSmall&&isMedium?"h5":"h4"}
         sx={{
           color: "white",
           textAlign: "center",
@@ -78,57 +64,56 @@ export default function Testimonials() {
       >
         Hear from our Clients
       </Typography>
-      <Swiper
-        ref={swiperRef}
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
+      <Box
+        item
+        xs={12}
+        md={4}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: isMedium || isSmall ? "100%" : "80%",
+          height: "40%",
+          color: "#B4D0B4",
+          // border: "2px solid red",
+          margin: "auto",
         }}
-        pagination={{
-          clickable: isMedium || isSmall ? false : true,
-        }}
-        navigation={isMedium || isSmall ? false : true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-        effect="fade" // Use 'fade' for smoother transitions
-        speed={800} // Set the transition speed in milliseconds
-        direction="horizontal" // Set the direction to 'horizontal'
-        loop={true} // Enable loop to make it continuous} // Initialize navigation
-        simulateTouch={true}
-        touchRatio={2}
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        {client.map((item, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <Box
-                item
-                xs={12}
-                md={4}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: isMedium || isSmall ? "100%" : "80%",
-                  height: "40%",
-                  color: "#B4D0B4",
-                  marginTop: "5%",
-                  // border: "1px solid yellow",
-                }}
-              >
+        <Swiper
+          ref={swiperRef}
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: isMedium || isSmall ? false : true,
+          }}
+          navigation={isMedium || isSmall ? false : true}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper"
+          effect="fade"
+          speed={800}
+          direction="horizontal"
+          loop={true}
+          simulateTouch={true}
+          touchRatio={2}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+        >
+          {client?.length > 0 &&
+            client.map((item, index) => (
+              <SwiperSlide key={index}>
                 <Cards
                   image={item.client_logo}
                   content={item.client_information}
                   onMouseEnter={handleCardMouseEnter}
                   onMouseLeave={handleCardMouseLeave}
                 />
-              </Box>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+              </SwiperSlide>
+            ))}
+        </Swiper>
+      </Box>
     </Box>
   );
 }

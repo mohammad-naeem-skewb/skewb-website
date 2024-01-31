@@ -9,32 +9,14 @@ import "./Testimonials.css";
 import Carousel from "./Carousel";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useMediaQuery, useTheme } from "@mui/material";
-import axios from "axios"
-
-export default function AutoCarousel() {
+ 
+export default function AutoCarousel({ contentArrHomeCards }) {
   const theme = useTheme();
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
-  const [contentArr, setContentArr] = useState([]);
-  const [apiCalled, setApiCalled] = useState(false);
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await axios.get("http://15.207.123.147:8000/api/home_card/");
-        setContentArr(response.data);
-        setApiCalled(true);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    if (!apiCalled) {
-      getData();
-    }
-  }, []);
-  console.log(contentArr);
-
+ 
+  // console.log(contentArr);
+ 
   // const contentArray = [
   //   {
   //     image: img1,
@@ -49,21 +31,21 @@ export default function AutoCarousel() {
   //     heading: "Reinvent digital analytics, with Skewb",
   //   },
   // ];
-
+ 
   const swiperRef = useRef(null);
-
+ 
   const handleCardMouseEnter = () => {
     if (swiperRef.current && swiperRef.current.autoplay) {
       swiperRef.current.autoplay.stop();
     }
   };
-
+ 
   const handleCardMouseLeave = () => {
     if (swiperRef.current && swiperRef.current.autoplay) {
       swiperRef.current.autoplay.start();
     }
   };
-
+ 
   return (
     <>
       <Swiper
@@ -88,7 +70,7 @@ export default function AutoCarousel() {
         touchRatio={2}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        {contentArr.map((ele, index) => (
+        {contentArrHomeCards?.length > 0 && contentArrHomeCards.map((ele, index) => (
           <SwiperSlide key={index}>
             <Carousel
               img={ele.image}

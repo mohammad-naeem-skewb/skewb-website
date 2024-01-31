@@ -12,22 +12,15 @@ import "../homeComponents/Testimonials.css";
 // import StartupAward from "../assets/awardslogo/startup_award_tajlogo.png";
 
 // import required modules
-import  { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import AwardCard from "./AwardCard";
-
-
 
 export default function AwardCarousel() {
   const theme = useTheme();
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
-  // const awardsArr = [
-  //   { AwardName: "G20 Summit", img: G20 },
-  //   { AwardName: "Hartron", img: Hartron },
-  //   { AwardName: "Startup Award", img: StartupAward },
-  // ];
-
+ 
   const [award, setAward] = useState([]);
   const swiperRef = useRef(null);
 
@@ -43,37 +36,31 @@ export default function AwardCarousel() {
   return (
     <Box
       sx={{
-        padding: "3%",
-        width: isMedium || isSmall ? "40%" : "20%",
+        // padding: "3%",
+        // width: isMedium || isSmall ? "40%" : "20%",
         margin: "auto",
+        maxWidth: "400px",
+        // border: "1px solid red"
       }}
     >
       <Swiper
-            
-            ref={swiperRef}
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            pagination={{
-              clickable: isMedium || isSmall ? false : true,
-            }}
-            navigation={isMedium || isSmall ? false : true}
-            modules={[Autoplay, Pagination, Navigation]}
-            className="mySwiper"
-            effect="fade"
-            speed={800}
-            direction="horizontal"
-            loop={true}
-            simulateTouch={true}
-            touchRatio={2}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-          >
-      
-        
-    
+        ref={swiperRef}
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
+        effect="fade"
+        speed={800}
+        direction="horizontal"
+        loop={true}
+        simulateTouch={true}
+        touchRatio={2}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+      >
         {award.map((ele, index) => {
           return (
             <SwiperSlide key={index}>

@@ -30,38 +30,50 @@ export default function Services() {
   const theme = useTheme();
   const isMedium = useMediaQuery(theme.breakpoints.down("md"));
   const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
-  const serviceArr = [
-    {
-      image: ma,
-      heading: "Marketing Analytics",
-      content:
-        "Our Marketing Analytics solution is designed to solve the age-old problem of measuring marketing effectiveness. Our highly-evolved Marketing Analytics Solutions can help you get a higher return on your investment, aid in campaign planning and portfolio management, and much more!",
-    },
-    {
-      image: da,
-      heading: "Digital Analytics",
-      content:
-        "Skewb’s artificial intelligence and machine learning-powered Digital Analytics Solutions empower your team by democratizing data across your entire marketing ecosystem.We take digital marketing analytics one step further with unparalleled prescriptive deep-dive.",
-    },
-    {
-      image: wa,
-      heading: "Web Analytics",
-      content:
-        "Web analytics is the process of collecting and analyzing web data to understand and optimize web usage. It makes effectiveness measurement and performance tracking more relevant than ever.",
-    },
-    {
-      image: ca,
-      heading: "CRM Analytics",
-      content:
-        "CRM Analytics is crucial to know your customers, personalize your marketing efforts, forecast future demand, and optimize omnichannel contact with relevant target audiences. Our advanced CRM analytics have been designed and developed to give you relevant insights for the best optimization.",
-    },
-    {
-      image: dg,
-      heading: "Data Audit and Governance",
-      content:
-        "At Skewb, we believe it’s crucial to have an advanced level of data governance that identifies data elements and establish quality standards that ensure data collection, and sanity required for analytics and measurement.",
-    },
-  ];
+  // const serviceArr = [
+  //   {
+  //     image: ma,
+  //     heading: "Marketing Analytics",
+  //     content:
+  //       "Our Marketing Analytics solution is designed to solve the age-old problem of measuring marketing effectiveness. Our highly-evolved Marketing Analytics Solutions can help you get a higher return on your investment, aid in campaign planning and portfolio management, and much more!",
+  //   },
+  //   {
+  //     image: da,
+  //     heading: "Digital Analytics",
+  //     content:
+  //       "Skewb’s artificial intelligence and machine learning-powered Digital Analytics Solutions empower your team by democratizing data across your entire marketing ecosystem.We take digital marketing analytics one step further with unparalleled prescriptive deep-dive.",
+  //   },
+  //   {
+  //     image: wa,
+  //     heading: "Web Analytics",
+  //     content:
+  //       "Web analytics is the process of collecting and analyzing web data to understand and optimize web usage. It makes effectiveness measurement and performance tracking more relevant than ever.",
+  //   },
+  //   {
+  //     image: ca,
+  //     heading: "CRM Analytics",
+  //     content:
+  //       "CRM Analytics is crucial to know your customers, personalize your marketing efforts, forecast future demand, and optimize omnichannel contact with relevant target audiences. Our advanced CRM analytics have been designed and developed to give you relevant insights for the best optimization.",
+  //   },
+  //   {
+  //     image: dg,
+  //     heading: "Data Audit and Governance",
+  //     content:
+  //       "At Skewb, we believe it’s crucial to have an advanced level of data governance that identifies data elements and establish quality standards that ensure data collection, and sanity required for analytics and measurement.",
+  //   },
+  // ];
+
+  const [serviceArr, setServiceArr] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      const response = await fetch("http://15.207.123.147:8000/api/services/");
+      const responsJson = await response.json();
+      setServiceArr(responsJson);
+    }
+    getData();
+  }, []);
+  // console.log(serviceArr);
   const gifArr = [
     {
       heading1: "Ensemble Model",
@@ -115,10 +127,10 @@ export default function Services() {
           <Typography variant="h4" gutterBottom>
             <span
               style={{
-                color: "#d6ff41",
+                // color: "#d6ff41",
                 letterSpacing: "-.5px",
                 fontFamily: "Sora, sans-serif",
-                fontFamily: "500",
+                // fontFamily: "500",
                 // marginTop: "15%",
                 color: "#ffffff",
                 marginBottom: "10%",
@@ -150,7 +162,7 @@ export default function Services() {
           item
           xs={12}
           md={5}
-          style={{
+          sx={{
             height: "100%",
             display: "flex",
             alignItems: "center",
@@ -193,22 +205,27 @@ export default function Services() {
           touchRatio={2}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
         >
-          {serviceArr.map((ele, index) => (
-            <SwiperSlide key={index}>
-              <Box
-                sx={{ color: "white", position: "relative", cursor: "pointer" }}
-               
-              >
-                <CarouselService
-                  img={ele.image}
-                  content={ele.content}
-                  heading={ele.heading}
-                  onMouseEnter={handleCardMouseEnter}
-                  onMouseLeave={handleCardMouseLeave}
-                />
-              </Box>
-            </SwiperSlide>
-          ))}
+          {serviceArr.length > 0 &&
+            serviceArr.map((ele, index) => (
+              <SwiperSlide key={index}>
+                <Box
+                  sx={{
+                    color: "white",
+                    position: "relative",
+                    cursor: "pointer",
+                  }}
+                >
+                  <CarouselService
+                    img={ele.main_image}
+                    content={ele.body_content}
+                    heading={ele.name}
+                    onMouseEnter={handleCardMouseEnter}
+                    onMouseLeave={handleCardMouseLeave}
+                    id={ele.id}
+                  />
+                </Box>
+              </SwiperSlide>
+            ))}
         </Swiper>
 
         <Grid item xs={12} md={6} style={{ paddingTop: "9%" }} id="productDemo">

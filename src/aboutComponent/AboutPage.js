@@ -326,6 +326,7 @@ const AboutPage = React.memo(() => {
                 fontFamily: "Inter, sans-serif",
                 fontSize: "18px",
                 lineHeight: "180%",
+                // textAlign:"center"
                 // padding:"5%",
                 // border:"2px solid ted"
               }}
@@ -423,7 +424,7 @@ const AboutPage = React.memo(() => {
               gutterBottom
               sx={{ padding: "2% 2% 0 2%" }}
             >
-              <center>
+              <center >
                 We are excited to share our recent awards and recognition. We
                 work diligently to make our clients happy, always upholding
                 strong ethical standards and delivering excellent service. This

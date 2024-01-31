@@ -4,33 +4,31 @@ import ServiceTopExplore from "./ServiceTopExplore";
 import { useParams } from "react-router-dom";
 
 function ExploreService() {
-  const { title } = useParams();
+  const { id } = useParams();
   const [serviceData, setServicesData] = useState([]);
-  const [mainContent, setMainContent] = useState({});
-  const [filter, setFilter] = useState([]);
 
   useEffect(() => {
     async function getData() {
-      const response = await fetch(
-        "http://15.207.123.147:8000/explore/services/"
-      );
+      const response = await fetch("http://15.207.123.147:8000/api/services/");
       const responsJson = await response.json();
-      setServicesData(responsJson);
+      // console.log("responsJson: ", responsJson);
+      // setServicesData(responsJson);
+      const data = responsJson.filter((item) => item.id === parseInt(id));
+      setServicesData(data);
     }
     getData();
-  }, []);
+  }, [id]);
 
-  const b = serviceData[0]?.subtitle1;
-  const d = JSON.parse(b);
-  console.log(d);
+  // console.log(serviceData[0]);
 
   return (
     <>
       <ServiceTopExplore
-        image={serviceData[0]?.image1}
-        title={serviceData[0]?.title}
+        data={serviceData[0]?.next_page}
+        title={serviceData[0]?.name}
+        image={serviceData[0]?.main_image}
       />
-      <ServiceBottomExplore />
+      {/* <ServiceBottomExplore /> */}
     </>
   );
 }

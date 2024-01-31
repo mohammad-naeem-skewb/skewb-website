@@ -66,7 +66,7 @@ const App = () => {
             <Route path="/industries" element={<Industries />} />
             <Route path="/industryExplore/:title" element={<Explore />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/serviceExplore/:title" element={<ExploreService />} />
+            <Route path="/serviceExplore/:id" element={<ExploreService />} />
           </Routes>
           <ToastContainer />
         </Container>

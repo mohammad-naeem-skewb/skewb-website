@@ -10,7 +10,7 @@ function Service() {
   return (
     <>
     <Navbar />
-   <Services />
+    <Services />
    </> 
   )
 }

@@ -7,7 +7,7 @@ import { CardActionArea } from "@mui/material";
 
 const AwardCard = ({ name, img }) => {
   return (
-    <Card sx={{ width: 200, borderRadius: "15%" }}>
+    <Card sx={{ width: 150, borderRadius: "15%" }}>
       <CardActionArea>
         <CardMedia component="img" width="100%" image={img} />
         <CardContent>
